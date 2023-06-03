@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  @apply bg-[#151718] text-[#505456]
+}
+
+.main{
+  @apply  mx-auto w-full min-h-[100%] px-4 md:px-8 
+}
+
+.flex_center{
+  @apply flex justify-center items-center
+}
+
+.flex_between{
+  @apply flex justify-between items-center
+}
+
+.glassmorphism{
+  @apply bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-200
+}
+
+.dropdown{
+  @apply absolute top-8 md:top-10 right-0 transition-all duration-200 p-1 rounded-md bg-[#151718] flex flex-col border border-black shadow-xl;
+}
+
+.dropdown_link{
+  @apply text-sm hover:text-white font-medium px-2 py-1.5 w-[100px] rounded-sm filter hover:backdrop-blur-lg hover:bg-zinc-400/10 transition-all duration-200 shadow-sm;
+}
