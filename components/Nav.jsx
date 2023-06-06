@@ -1,11 +1,11 @@
 "use client"
 import Link from "next/link";
 import { useState } from "react";
-import { BsKanban, BsPersonCircle, BsSearch } from "react-icons/bs";
+import { BsKanban, BsPersonCircle, BsPersonFillAdd, BsSearch } from "react-icons/bs";
 
 const Nav = () => {
 
-  const [isSignedIn, setSignedIn] = useState(true);  
+  const [isSignedIn, setSignedIn] = useState(false);  
   const [searchQuery, setSearchQuery] = useState("");
   const [isHovered, setIsHovered] = useState(false)
 
@@ -18,7 +18,6 @@ const Nav = () => {
         </div>
        </Link> 
 
-       {/* Desktop navigation */}
         <div>
             {isSignedIn ? (
                 <div className="flex_center gap-2">
@@ -47,9 +46,35 @@ const Nav = () => {
                     </div>
                 </div>
             ) : (
-                <div className="hover:text-white cursor-pointer transition-all duration-200">
-                    SignIn
-                </div>
+                <>
+                    <div className="max-sm:hidden flex_center gap-1 md:gap-2">
+                        <Link 
+                            href="/signin"
+                            className="dark_btn"
+                        >
+                            Log In                    
+                        </Link>
+                        <Link 
+                            href="/signup"
+                            className="dark_btn"
+                        >
+                            Sign Up
+                        </Link>
+                    </div>
+                    <div 
+                        className="flex_center md:hidden w-[24px] h-[24px] md:w-[30px] md:h-[30px] relative"
+                        onMouseEnter={()=>setIsHovered(true)}
+                        onMouseLeave={()=>setIsHovered(false)}
+                    >
+                        <BsPersonFillAdd 
+                            className="m-auto w-[80%] h-[80%] cursor-pointer text-white transition-all duration-200"
+                        />
+                        <div className={`dropdown ${isHovered?"scale-[100%]":"scale-[0%]"}`}>
+                            <Link href="/signin" className="dropdown_link">Log In</Link>
+                            <Link href="/signup" className="dropdown_link cursor-pointer">Sign Up</Link>
+                        </div>
+                    </div>
+                </>
             )}
         </div>
     </nav>

@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body{
-  @apply bg-[#151718] text-[#505456]
+  @apply bg-[#151718] text-slate-200
+  /* @apply bg-slate-50 text-black */
 }
 
 .main{
@@ -28,4 +29,16 @@ body{
 
 .dropdown_link{
   @apply text-sm hover:text-white font-medium px-2 py-1.5 w-[100px] rounded-sm filter hover:backdrop-blur-lg hover:bg-zinc-400/10 transition-all duration-200 shadow-sm;
+}
+
+.dark_btn{
+  @apply text-white text-xs md:text-sm bg-[#151718] rounded-full shadow-lg py-1 px-4 
+}
+
+.auth_input{
+  @apply border focus:border-2 border-[#151718] rounded-md outline-none text-[#151718] py-2 pl-8 pr-2 w-full text-sm md:text-base;
+}
+
+.auth_btn{
+  @apply bg-[#151718] text-white from-emerald-800 to-sky-800 rounded-full w-full py-2.5 flex_center cursor-pointer hover:shadow-2xl transition-all duration-200
 }
