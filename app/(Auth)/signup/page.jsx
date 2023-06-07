@@ -1,8 +1,15 @@
+"use client"
 import Link from 'next/link'
 import React from 'react'
 import { BsAt, BsFillPersonFill, BsFillShieldLockFill } from 'react-icons/bs'
 
+// react-hook-form imports
+import { useForm } from 'react-hook-form'
+
 const SignUp = () => {
+
+  const {register, handleSubmit, formState:{errors}} = useForm(); 
+
   return (
     <section className='w-full h-[90vh] flex_center'>
       <div className='w-full h-full bg-white border-2 border-black rounded-md flex_center gap-10 md:gap-14 flex-col p-4 relative'>
