@@ -52,7 +52,7 @@ const Nav = () => {
                             href="/signin"
                             className="dark_btn"
                         >
-                            Log In                    
+                            Sign In                    
                         </Link>
                         <Link 
                             href="/signup"

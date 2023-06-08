@@ -5,10 +5,19 @@ import { BsAt, BsFillPersonFill, BsFillShieldLockFill } from 'react-icons/bs'
 
 // react-hook-form imports
 import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup';
+import { signUpSchema } from '@/ValidationSchema/authValidationSchema'
 
 const SignUp = () => {
 
-  const {register, handleSubmit, formState:{errors}} = useForm(); 
+  const {register, handleSubmit,reset, formState:{errors}} = useForm({
+    resolver: yupResolver(signUpSchema)
+  }); 
+
+  const handleFormSubmit = (data) =>{
+    console.log("signUp data: ",data);
+    reset();
+  }
 
   return (
     <section className='w-full h-[90vh] flex_center'>
@@ -21,38 +30,57 @@ const SignUp = () => {
             Let&#39;s get started by creating your account
           </div>
         </div>
-        <form className='w-full md:max-w-xl flex_center flex-col gap-6 md:gap-9'>
-          <div className='w-full flex_center gap-1 relative'>
-            <BsFillPersonFill className="text-[#151718] absolute top-auto left-2"/>
-            <input 
-              type="text" 
-              placeholder='Name'
-              className="auth_input"
-            />
+        <form 
+          onSubmit={handleSubmit(handleFormSubmit)}
+          className='w-full md:max-w-xl flex_center flex-col gap-4 md:gap-9'
+        >
+          <div className="w-full">  
+            <div className='w-full flex_center gap-1 relative'>
+              <BsFillPersonFill className="text-[#151718] absolute top-auto left-2"/>
+              <input 
+                type="text" 
+                placeholder='Fullname'
+                className="auth_input"
+                {...register("fullName")}
+                />
+            </div>
+            <p className="text-red-400 text-xs md:text-sm mt-1 ">{errors.fullName?.message}</p>
           </div>
-          <div className='w-full flex_center gap-1 relative'>
-            <BsAt className="text-[#151718] absolute top-auto left-2"/>
-            <input
-              type="email"
-              placeholder="Email"
-              className="auth_input"
-            />
+          <div className="w-full">
+            <div className='w-full flex_center gap-1 relative'>
+              <BsAt className="text-[#151718] absolute top-auto left-2"/>
+              <input
+                type="email"
+                placeholder="Email"
+                className="auth_input"
+                {...register("email")}
+                />
+            </div>
+            <p className="text-red-400 text-xs md:text-sm mt-1 ">{errors.email?.message}</p>
           </div>
-          <div className='w-full flex_center gap-1 relative'>
-            <BsFillShieldLockFill className="text-[#151718] absolute top-auto left-2"/>
-            <input 
-              type="password" 
-              placeholder="Password"
-              className="auth_input"
-            />
+          <div className="w-full">
+            <div className='w-full flex_center gap-1 relative'>
+              <BsFillShieldLockFill className="text-[#151718] absolute top-auto left-2"/>
+              <input 
+                type="password" 
+                placeholder="Password"
+                className="auth_input"
+                {...register("password")}
+                />
+            </div>
+            <p className="text-red-400 text-xs md:text-sm mt-1 ">{errors.password?.message}</p>
           </div>
-          <div className='w-full flex_center gap-1 relative'>
-            <BsFillShieldLockFill className="text-[#151718] absolute top-auto left-2"/>
-            <input 
-              type="password" 
-              placeholder="Confirm Password"
-              className="auth_input"
-            />
+          <div className="w-full">
+            <div className='w-full flex_center relative'>
+              <BsFillShieldLockFill className="text-[#151718] absolute top-auto left-2"/>
+              <input 
+                type="password" 
+                placeholder="Confirm Password"
+                className="auth_input"
+                {...register("confirmPassword")}
+                />
+            </div>
+            <p className="text-red-400 text-xs md:text-sm mt-1 ">{errors.confirmPassword?.message}</p>
           </div>
 
           <button type="submit" className="auth_btn mt-6">Sign Up</button>
