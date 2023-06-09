@@ -8,15 +8,26 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signInSchema} from '@/ValidationSchema/authValidationSchema'
 
+// appwrite imports
+// import { account } from '@/config/appwrite'
+// import { ID } from 'appwrite'
+
 const SignUp = () => {
 
   const {register, handleSubmit,reset, formState:{errors}} = useForm({
     resolver: yupResolver(signInSchema)
   }); 
 
-  const handleFormSubmit = async (data,action) =>{
-    console.log("action: ",action);
+  const handleFormSubmit = async (data) =>{
     console.log("signUp data: ",data);
+
+    // await account.create(
+    //   // ID.unique(),
+    //   data.email,
+    //   data.password,
+    //   data.fullName
+    // )
+
     reset();
   }
 

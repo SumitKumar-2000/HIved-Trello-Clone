@@ -71,7 +71,7 @@ const Nav = () => {
                         />
                         <div className={`dropdown ${isHovered?"scale-[100%]":"scale-[0%]"}`}>
                             <Link href="/signin" className="dropdown_link">Log In</Link>
-                            <Link href="/signup" className="dropdown_link cursor-pointer">Sign Up</Link>
+                            <Link href="/signup" className="dropdown_link">Sign Up</Link>
                         </div>
                     </div>
                 </>

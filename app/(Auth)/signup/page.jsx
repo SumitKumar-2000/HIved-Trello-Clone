@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link'
-import React from 'react'
+import React, { useContext } from 'react'
 import { BsAt, BsFillPersonFill, BsFillShieldLockFill } from 'react-icons/bs'
 
 // react-hook-form imports
@@ -8,14 +8,19 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signUpSchema } from '@/ValidationSchema/authValidationSchema'
 
+// auth context imports
+import { AuthCheck } from '@/context/AuthContext'
+
 const SignUp = () => {
+
+  const {authValues, setAuthValues} = useContext(AuthCheck)
 
   const {register, handleSubmit,reset, formState:{errors}} = useForm({
     resolver: yupResolver(signUpSchema)
   }); 
 
   const handleFormSubmit = (data) =>{
-    console.log("signUp data: ",data);
+    setAuthValues(data)
     reset();
   }
 

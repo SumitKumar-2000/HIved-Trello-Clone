@@ -24,7 +24,7 @@ body{
 }
 
 .dropdown{
-  @apply absolute top-8 md:top-10 right-0 transition-all duration-200 p-1 rounded-md bg-[#151718] flex flex-col border border-black shadow-xl;
+  @apply absolute z-50 top-8 md:top-10 right-0 transition-all duration-500 p-1 rounded-md bg-[#151718] flex flex-col border border-black shadow-xl;
 }
 
 .dropdown_link{
