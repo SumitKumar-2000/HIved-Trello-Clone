@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link'
-import React, { useContext } from 'react'
+import React from 'react'
 import { BsAt, BsFillPersonFill, BsFillShieldLockFill } from 'react-icons/bs'
 
 // react-hook-form imports
@@ -8,20 +8,38 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signUpSchema } from '@/ValidationSchema/authValidationSchema'
 
-// auth context imports
-import { AuthCheck } from '@/context/AuthContext'
-
 const SignUp = () => {
-
-  const {authValues, setAuthValues} = useContext(AuthCheck)
 
   const {register, handleSubmit,reset, formState:{errors}} = useForm({
     resolver: yupResolver(signUpSchema)
   }); 
 
   const handleFormSubmit = (data) =>{
-    setAuthValues(data)
-    reset();
+    try {
+      (async () => {
+        const response = await fetch("http://localhost:3000/api/auth/signup",{
+          method:"POST",
+          body: JSON.stringify({
+            fullName: data.fullName,
+            email: data.email,
+            password: data.password
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        })
+        
+        if(response.ok){
+          const data = await response.json();
+          console.log("data: ",data);
+        }
+      })()
+
+    } catch (error) {
+      console.log("error: ",error);
+    }
+
+    // reset();
   }
 
   return (
