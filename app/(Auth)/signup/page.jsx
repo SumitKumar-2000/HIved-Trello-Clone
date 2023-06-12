@@ -39,7 +39,7 @@ const SignUp = () => {
       console.log("error: ",error);
     }
 
-    // reset();
+    reset();
   }
 
   return (

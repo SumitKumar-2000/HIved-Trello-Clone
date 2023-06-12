@@ -16,9 +16,31 @@ const SignUp = () => {
   }); 
 
   const handleFormSubmit = async (data) =>{
-    console.log("signUp data: ",data);
+    
+    try {
+      (async () => {
+        const response = await fetch("http://localhost:3000/api/auth/signin",{
+          method:"POST",
+          body: JSON.stringify({
+            email: data.email,
+            password: data.password
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        })
+        
+        if(response.ok){
+          const data = await response.json();
+          console.log("data: ",data);
+        }
+      })()
 
-    // reset();
+    } catch (error) {
+      console.log("error: ",error);
+    }
+
+    reset();
   }
 
   return (

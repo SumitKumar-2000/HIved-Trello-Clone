@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 export const POST = async (request) => {
     try {
         await connectToDB();
-        const {email, password} = request.body;
+        const {email, password} = await request.json();
         
         const user = await User.findOne({email});
 
@@ -13,7 +13,9 @@ export const POST = async (request) => {
             return new Response(JSON.stringify(user),{status: 202})
         }
 
-        // check whether user exists
+        if(!user){
+            return new Response("Incorrect password or email!",{status:401});
+        }
 
     } catch (error) {
         return new Response("Internal Server Error",{status:500})

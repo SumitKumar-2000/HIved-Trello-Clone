@@ -1,6 +1,7 @@
 // "use client"
 
 import Nav from '@/components/Nav'
+import NextAuthSessionProvider from '@/components/providers/NextAuthProvider'
 // import AuthContext from '@/context/AuthContext'
 import "@/style/globals.css"
 import { Inter } from 'next/font/google'
@@ -18,14 +19,15 @@ export default function RootLayout({ children }) {
     <html lang="en">
       {/* <AuthContext> */}
         <body className={inter.className}>
-          <div
-            className="absolute top-0 left-0 w-full max-sm:h-96 h-[65vh] -z-50 bg-gradient-to-br from-emerald-800 to-sky-800 filter blur-3xl opacity-50"
-            />
-          <Nav/>
-          <main className='main'>
-            {children}
-          </main>
-          {/* <Footer/> */}
+          <NextAuthSessionProvider>
+            <div
+              className="absolute top-0 left-0 w-full max-sm:h-96 h-[65vh] -z-50 bg-gradient-to-br from-emerald-800 to-sky-800 filter blur-3xl opacity-50"
+              />
+            <Nav/>
+            <main className='main'>
+              {children}
+            </main>
+          </NextAuthSessionProvider>
         </body>
       {/* </AuthContext> */}
     </html>
