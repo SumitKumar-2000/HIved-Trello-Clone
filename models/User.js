@@ -2,19 +2,21 @@ import {Schema, model, models} from "mongoose";
 import { date } from "yup";
 
 const UserSchema = new Schema ({
-    fullName: {
-        type: String,
-        required: [true, "FullName is required!"],
-    },
     email: {
         type: String,
         unique: [true, 'Email already exist!'],
         required: [true, 'Email is required'],
     },
-    password: {
+
+    username: {
         type: String,
-        required: [true, "Password is required"]
+        required: [true, "Username is required!"],
+        match: [/^(?=.{5,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/, "Username invalid, it should contain 5-20 alphanumeric letters and be unique!"]
     },
+
+    image: {
+        type: String,
+    }
 },{
     timestamps: {
         type: date,

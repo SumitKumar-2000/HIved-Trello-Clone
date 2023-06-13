@@ -32,7 +32,7 @@ body{
 }
 
 .dark_btn{
-  @apply text-white text-xs md:text-sm bg-[#151718] rounded-full shadow-lg py-1 px-4 
+  @apply text-white text-xs md:text-sm bg-[#151718] rounded-full shadow-lg py-1.5 px-4 
 }
 
 .auth_input{

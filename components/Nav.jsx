@@ -1,11 +1,24 @@
 "use client"
 import Link from "next/link";
-import { useState } from "react";
-import { BsKanban, BsPersonCircle, BsPersonFillAdd, BsSearch } from "react-icons/bs";
+import { useState, useEffect } from "react";
+import { BsKanban, BsPersonCircle, BsSearch } from "react-icons/bs";
+
+// next-auth imports
+import { useSession, signIn, signOut, getProviders } from "next-auth/react";
+import Image from "next/image";
 
 const Nav = () => {
 
-  const [isSignedIn, setSignedIn] = useState(false);  
+  const {data: session} = useSession();
+  const [providers, setProviders] = useState(null)
+
+  useEffect(() => {
+    (async () => {
+        const providerResponse = await getProviders();
+        setProviders(providerResponse)
+    })()
+  },[])
+
   const [searchQuery, setSearchQuery] = useState("");
   const [isHovered, setIsHovered] = useState(false)
 
@@ -19,7 +32,7 @@ const Nav = () => {
        </Link> 
 
         <div>
-            {isSignedIn ? (
+            {session?.user ? (
                 <div className="flex_center gap-2">
                     <div className="flex_center gap-1 py-1 px-2 md:px-3 border border-black bg-[#151718] rounded-full">
                         <BsSearch className="w-[12px] md:w-[14px] h-[12px] md:h-[14px] text-[#9299a4]"/>
@@ -36,44 +49,44 @@ const Nav = () => {
                         onMouseEnter={()=>setIsHovered(true)}
                         onMouseLeave={()=>setIsHovered(false)}
                     >
-                        <BsPersonCircle 
-                            className="w-full h-full text-[#151718] cursor-pointer hover:text-white transition-all duration-200"
-                        />
+                        {session?.user.image ? ( 
+                            <Image
+                                src={session?.user.image}
+                                alt="User Img"
+                                width={24}
+                                height={24}
+                                className="cursor-pointer rounded-full object-cover"
+                            />
+                        ) : (
+                            <BsPersonCircle 
+                                className="w-full h-full text-[#151718] cursor-pointer hover:text-white transition-all duration-200"
+                            />
+                        )}
                         <div className={`dropdown ${isHovered?"scale-[100%]":"scale-[0%]"}`}>
                             <Link href="/" className="dropdown_link">Profile</Link>
-                            <div className="dropdown_link cursor-pointer">SignOut</div>
+                            <div 
+                                onClick={()=>signOut()}
+                                className="dropdown_link cursor-pointer"
+                            >   
+                                Sign Out
+                            </div>
                         </div>
                     </div>
                 </div>
             ) : (
                 <>
-                    <div className="max-sm:hidden flex_center gap-1 md:gap-2">
-                        <Link 
-                            href="/signin"
+                  {
+                    providers && Object.values(providers).map((provider) => (
+                        <button
+                            type="button"
+                            key={provider.name}
+                            onClick={()=>signIn(provider.id)}
                             className="dark_btn"
                         >
-                            Sign In                    
-                        </Link>
-                        <Link 
-                            href="/signup"
-                            className="dark_btn"
-                        >
-                            Sign Up
-                        </Link>
-                    </div>
-                    <div 
-                        className="flex_center md:hidden w-[24px] h-[24px] md:w-[30px] md:h-[30px] relative"
-                        onMouseEnter={()=>setIsHovered(true)}
-                        onMouseLeave={()=>setIsHovered(false)}
-                    >
-                        <BsPersonFillAdd 
-                            className="m-auto w-[80%] h-[80%] cursor-pointer text-white transition-all duration-200"
-                        />
-                        <div className={`dropdown ${isHovered?"scale-[100%]":"scale-[0%]"}`}>
-                            <Link href="/signin" className="dropdown_link">Log In</Link>
-                            <Link href="/signup" className="dropdown_link">Sign Up</Link>
-                        </div>
-                    </div>
+                            Sign In
+                        </button>
+                    ))
+                  }  
                 </>
             )}
         </div>

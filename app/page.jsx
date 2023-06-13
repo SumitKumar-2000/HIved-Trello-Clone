@@ -1,18 +1,9 @@
 "use client"
-import { useSession } from 'next-auth/react';
-import React from 'react'
+import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
 
-const Home = () => {
-
-  const {data: session} = useSession({
-    required: true,
-    onUnauthenticated() {
-      redirect("/");
-    },
-  })
-
-  // console.log("session user",session?.user);
+const Home = async () => {
+  // console.log("session data: ",data);
 
   return (
     <section>
