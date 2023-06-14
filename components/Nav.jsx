@@ -1,13 +1,13 @@
 "use client"
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { BsKanban, BsPersonCircle, BsSearch } from "react-icons/bs";
+import { BsKanban, BsPersonCircle, BsSearch, BsFillMoonFill, BsFillSunFill, BsMoon, BsSun } from "react-icons/bs";
 
 // next-auth imports
 import { useSession, signIn, signOut, getProviders } from "next-auth/react";
 import Image from "next/image";
 
-const Nav = () => {
+const Nav = ({darkMode, setDarkMode}) => {
 
   const {data: session} = useSession();
   const [providers, setProviders] = useState(null)
@@ -24,17 +24,26 @@ const Nav = () => {
 
   return (
     <nav className='px-4 md:px-8 py-4 md:py-4 flex_between w-full'>
-       <Link href="/" className="flex_center gap-1 text-white cursor-pointer">
+       <Link href="/" className="flex_center gap-1 dark:text-white text-[#151718] cursor-pointer">
         <BsKanban className="h-[24px] md:h-[28px] w-[24px] md:w-[26px]"/>
         <div className="hidden md:block text-2xl">
             Hived
         </div>
        </Link> 
 
-        <div>
+        <div className="flex_center gap-2">
+            <div
+                onClick={()=>setDarkMode(prev => !prev)}
+                className="rounded-full p-1 w-[28px] h-[28px] md:w-[30px] md:h-[30px] flex items-center bg-[#151718] cursor-pointer transition-all duration-500 text-white"
+            >
+                <BsFillSunFill className={`${darkMode? "h-0 w-0":"h-full w-full"} rounded-full transition-all duration-500`}/> 
+                <BsFillMoonFill className={`${darkMode? "h-full w-full":"h-0 w-0"} transition-all duration-500 rounded-full`}/>
+            </div>
+
             {session?.user ? (
                 <div className="flex_center gap-2">
-                    <div className="flex_center gap-1 py-1 px-2 md:px-3 border border-black bg-[#151718] rounded-full">
+                    
+                    {/* <div className="flex_center gap-1 py-1 px-2 md:px-3 border border-black bg-[#151718] rounded-full">
                         <BsSearch className="w-[12px] md:w-[14px] h-[12px] md:h-[14px] text-[#9299a4]"/>
                         <input 
                             type="search" 
@@ -43,9 +52,10 @@ const Nav = () => {
                             className="bg-transparent outline-none px-1 md:px-2 text-[12px] md:text-[14px] text-white"
                             placeholder="Search..."
                         />
-                    </div>
+                    </div> */}
+
                     <div 
-                        className="flex_center w-[24px] h-[24px] md:w-[30px] md:h-[30px] relative"
+                        className="flex_center w-[28px] h-[28px] md:w-[30px] md:h-[30px] border-2 border-black rounded-full relative"
                         onMouseEnter={()=>setIsHovered(true)}
                         onMouseLeave={()=>setIsHovered(false)}
                     >
@@ -53,9 +63,9 @@ const Nav = () => {
                             <Image
                                 src={session?.user.image}
                                 alt="User Img"
-                                width={24}
-                                height={24}
-                                className="cursor-pointer rounded-full object-cover"
+                                width={30}
+                                height={30}
+                                className="cursor-pointer rounded-full"
                             />
                         ) : (
                             <BsPersonCircle 

@@ -1,11 +1,10 @@
-// "use client"
+"use client"
 
+import "@/style/globals.css"
+import { useState } from "react"
 import Nav from '@/components/Nav'
 import NextAuthSessionProvider from '@/components/providers/NextAuthProvider'
-// import AuthContext from '@/context/AuthContext'
-import "@/style/globals.css"
 import { Inter } from 'next/font/google'
-// import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,21 +14,25 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
+  const [darkMode, setDarkMode] = useState(false)
+
   return (
-    <html lang="en">
-      {/* <AuthContext> */}
+    <html lang="en" className={`${darkMode ? "dark" : ""}`}>
         <body className={inter.className}>
           <NextAuthSessionProvider>
             <div
-              className="absolute top-0 left-0 w-full max-sm:h-96 h-[65vh] -z-50 bg-gradient-to-br from-emerald-800 to-sky-800 filter blur-3xl opacity-50"
+              className="absolute top-0 left-0 w-full min-h-[75vh] -z-50 bg-gradient-to-br from-emerald-400 to-sky-400 filter blur-3xl opacity-50"
               />
-            <Nav/>
+            <Nav
+              darkMode={darkMode}
+              setDarkMode={setDarkMode}
+            />
             <main className='main'>
               {children}
             </main>
           </NextAuthSessionProvider>
         </body>
-      {/* </AuthContext> */}
     </html>
   )
 }

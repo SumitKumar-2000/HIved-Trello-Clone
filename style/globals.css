@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 body{
-  @apply bg-[#151718] text-slate-200
-  /* @apply bg-slate-50 text-black */
+  @apply bg-slate-50 dark:bg-[#151718] text-black dark:text-slate-200 transition-all duration-500
 }
 
 .main{
@@ -28,7 +27,7 @@ body{
 }
 
 .dropdown_link{
-  @apply text-sm hover:text-white font-medium px-2 py-1.5 w-[100px] rounded-sm filter hover:backdrop-blur-lg hover:bg-zinc-400/10 transition-all duration-200 shadow-sm;
+  @apply text-sm text-slate-200 hover:text-white font-medium px-2 py-1.5 w-[100px] rounded-sm filter hover:backdrop-blur-lg hover:bg-zinc-400/10 transition-all duration-100 shadow-sm;
 }
 
 .dark_btn{
