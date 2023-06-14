@@ -7,11 +7,23 @@ body{
 }
 
 .main{
-  @apply  mx-auto w-full min-h-[100%] px-4 md:px-8 
+  @apply mx-auto w-full min-h-[100%] px-4 md:px-8 
+}
+
+.emerald_sky_gradient{
+  @apply absolute top-0 left-0 w-full min-h-[75vh] -z-50 bg-gradient-to-br from-emerald-400 to-sky-400 filter blur-3xl opacity-50
+}
+
+.emereld_sky_gradient_text{
+  @apply bg-gradient-to-r from-emerald-600 dark:from-emerald-300 to-sky-600 dark:to-sky-300 bg-clip-text text-transparent;
 }
 
 .flex_center{
   @apply flex justify-center items-center
+}
+
+.flex_left{
+  @apply flex justify-start items-center
 }
 
 .flex_between{

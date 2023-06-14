@@ -1,0 +1,11 @@
+.hived_head{
+  @apply text-4xl md:text-6xl lg:text-8xl text-center md:text-left font-extrabold
+}
+
+.hived_sub_head{
+    @apply text-2xl md:text-4xl lg:text-6xl text-center md:text-left font-bold text-[#151718] dark:text-emerald-50
+}
+
+.hived_desc{
+    @apply text-center md:text-left text-sm font-light md:font-normal md:text-xl text-[#151718] dark:text-white
+}

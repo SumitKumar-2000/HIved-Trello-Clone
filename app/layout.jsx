@@ -21,9 +21,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${darkMode ? "dark" : ""}`}>
         <body className={inter.className}>
           <NextAuthSessionProvider>
-            <div
-              className="absolute top-0 left-0 w-full min-h-[75vh] -z-50 bg-gradient-to-br from-emerald-400 to-sky-400 filter blur-3xl opacity-50"
-              />
+            <div className="emerald_sky_gradient"/>
             <Nav
               darkMode={darkMode}
               setDarkMode={setDarkMode}
