@@ -12,6 +12,13 @@ const Home = () => {
           <h1 className="hived_head emereld_sky_gradient_text">Hived</h1>
           <h1 className="hived_sub_head">Let's you streamline your Tasks & Projects</h1>
           <p className="hived_desc">Empowering you to stay Organized, Focused, and Productive.</p>
+          <div className="w-full flex items-center justify-center md:justify-start">
+            {
+              <button className="auth_dark_btn mt-4">
+                Sign In
+              </button>
+            }
+          </div>
         </div>
 
         <div className="w-full md:w-[40%]">
