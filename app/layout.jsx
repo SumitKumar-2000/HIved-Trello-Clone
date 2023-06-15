@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Hived',
-  description: 'Create, Save, Drag & Drop your todos.',
+  description: 'Create, Save, Drag & Drop your todos.'
 }
 
 export default function RootLayout({ children }) {
