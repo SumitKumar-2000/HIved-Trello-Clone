@@ -19,7 +19,6 @@ const Nav = ({darkMode, setDarkMode}) => {
     })()
   },[])
 
-  const [searchQuery, setSearchQuery] = useState("");
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -34,7 +33,7 @@ const Nav = ({darkMode, setDarkMode}) => {
         <div className="flex_center gap-2">
             <div
                 onClick={()=>setDarkMode(prev => !prev)}
-                className="rounded-full p-1 w-[28px] h-[28px] md:w-[30px] md:h-[30px] flex items-center bg-[#151718] shadow-lg cursor-pointer transition-all duration-500 text-white"
+                className="rounded-full p-1.5 w-[28px] h-[28px] md:w-[30px] md:h-[30px] flex items-center bg-[#151718] shadow-lg cursor-pointer transition-all duration-500 text-white"
             >
                 <BsFillSunFill className={`${darkMode? "h-0 w-0":"h-full w-full"} rounded-full transition-all duration-500`}/> 
                 <BsFillMoonFill className={`${darkMode? "h-full w-full":"h-0 w-0"} transition-all duration-500 rounded-full`}/>
