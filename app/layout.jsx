@@ -8,10 +8,11 @@ import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'Hived',
-  description: 'Create, Save, Drag & Drop your todos.'
-}
+// to use layout in client side, it is required to add "use client" but also required to remove this meta data
+// export const metadata = {
+//   title: 'Hived',
+//   description: 'Create, Save, Drag & Drop your todos.'
+// }
 
 export default function RootLayout({ children }) {
 
