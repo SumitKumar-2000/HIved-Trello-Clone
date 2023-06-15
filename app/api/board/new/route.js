@@ -11,7 +11,6 @@ export const POST = async (req) => {
     try {
         await connectToDB();
 
-
         const newBoard = await new Board({
             creator: userId,
             title: title,
