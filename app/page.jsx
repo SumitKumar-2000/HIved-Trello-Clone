@@ -1,7 +1,11 @@
 "use client"
 import "@/style/homePage.css"
+import { useSession } from "next-auth/react"
+import Link from "next/link"
 
 const Home = () => {
+
+  const {data: session} = useSession()
 
   return (
     <section className="mx-auto max-w-[90rem] py-4 rounded-md transition-all duration-500">
@@ -13,10 +17,15 @@ const Home = () => {
           <h1 className="hived_sub_head">Let's you streamline your Tasks & Projects</h1>
           <p className="hived_desc">Empowering you to stay Organized, Focused, and Productive.</p>
           <div className="w-full flex items-center justify-center md:justify-start">
-            {
-              <button className="auth_dark_btn mt-4">
-                Sign In
-              </button>
+            { session?.user ? (
+                <Link href={`/u/${session?.user.id}/boards`} className="auth_dark_btn mt-4">
+                  Your Boards
+                </Link>
+              ) : (
+                <button className="auth_dark_btn mt-4">
+                  Sign In
+                </button>
+              )
             }
           </div>
         </div>

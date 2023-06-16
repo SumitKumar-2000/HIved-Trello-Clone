@@ -11,7 +11,7 @@ body{
 }
 
 .emerald_sky_gradient{
-  @apply absolute top-0 left-0 w-full min-h-[75vh] -z-50 bg-gradient-to-br from-emerald-400 to-sky-400 filter blur-3xl opacity-50
+  @apply absolute top-0 left-0 w-full h-[90vh] md:h-[80vh] -z-50 bg-gradient-to-br from-emerald-400 dark:from-emerald-800 dark:to-sky-400 to-sky-800 filter blur-3xl opacity-70
 }
 
 .emereld_sky_gradient_text{
@@ -52,4 +52,8 @@ body{
 
 .auth_btn{
   @apply bg-[#151718] text-white from-emerald-800 to-sky-800 rounded-full w-full py-2.5 flex_center cursor-pointer hover:shadow-2xl transition-all duration-200
+}
+
+.dark_head{
+  @apply text-[#151718] dark:text-emerald-100 text-3xl font-bold
 }
