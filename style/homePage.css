@@ -1,15 +1,15 @@
 .hived_head{
-  @apply text-4xl md:text-8xl lg:text-8xl text-center md:text-left font-extrabold
+  @apply text-4xl md:text-8xl lg:text-8xl text-left font-extrabold
 }
 
 .hived_sub_head{
-    @apply text-2xl md:text-4xl lg:text-6xl text-center md:text-left font-bold text-[#151718] dark:text-emerald-50 leading-8
+    @apply text-2xl md:text-4xl lg:text-6xl text-left font-bold text-[#151718] dark:text-emerald-50 leading-8
 }
 
 .hived_desc{
-    @apply text-center md:text-left text-sm font-light md:font-normal md:text-xl text-[#151718] dark:text-white leading-5
+    @apply text-left text-sm font-light md:font-normal md:text-xl text-[#151718] dark:text-white leading-5
 }
 
 .auth_dark_btn{
-    @apply py-1.5 md:py-2 text-center bg-[#151718] text-white rounded-full shadow-2xl transition-all duration-500 w-[150px] border-2 border-black hover:bg-black/80 
+    @apply py-1.5 md:py-2 text-center bg-[#151718] text-white rounded-lg shadow-2xl transition-all duration-500 w-[150px] border-2 border-black hover:bg-black/80 
 }
