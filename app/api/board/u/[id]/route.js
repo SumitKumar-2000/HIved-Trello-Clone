@@ -6,9 +6,9 @@ export const GET = async (request, {params}) => {
         await connectToDB();
         const boards = await Board.find({creator: params.id}).populate("creator");
         
-        if(boards.length === 0) return new Response(JSON.stringify({message: "No board has been created yet!", status: 401}))
+        // if(boards.length === 0) return new Response(JSON.stringify("No board has been created yet!",{status: 401}))
 
-        return new Response(JSON.stringify(boards), {status:200});
+        return new Response(JSON.stringify(boards), {status:200});  
 
     } catch (error) {
         console.log("error: ",error);

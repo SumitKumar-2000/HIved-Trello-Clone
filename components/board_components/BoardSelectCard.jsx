@@ -4,7 +4,7 @@ import { BsArrowRight } from 'react-icons/bs'
 
 const BoardSelectCard = ({boardTitle, boardDescription}) => {
   return (
-    <div className='select_board_card gap-3'>
+    <div className='select_board_card flex flex-col gap-3'>
         <div>
             <div className="select_board_card_title">
                 {boardTitle}

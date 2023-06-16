@@ -1,9 +1,9 @@
 .select_board_card{
-   @apply text-white bg-[#151718] border border-black p-4 rounded-md shadow-md w-full md:w-[22rem] flex flex-col
+   @apply text-white bg-[#151718] border border-black p-4 rounded-md shadow-md w-full md:w-[22rem] h-fit
 }
 
 .select_board_card_title{
-    @apply text-white font-medium text-2xl md:text-2xl mb-1
+    @apply text-white font-medium text-2xl
 }
 
 .select_board_card_description{
