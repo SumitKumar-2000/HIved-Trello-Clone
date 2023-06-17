@@ -3,7 +3,7 @@
 }
 
 .hived_sub_head{
-    @apply text-2xl md:text-4xl lg:text-6xl text-left font-bold text-[#151718] dark:text-emerald-50 leading-8
+    @apply text-2xl md:text-4xl lg:text-6xl text-left font-bold text-[#151718] dark:text-yellow-50 leading-8
 }
 
 .hived_desc{
@@ -11,5 +11,5 @@
 }
 
 .auth_dark_btn{
-    @apply py-1.5 md:py-2 text-center bg-[#151718] text-white rounded-lg shadow-2xl transition-all duration-500 w-[150px] border-2 border-black hover:bg-black/80 
+    @apply py-1.5 md:py-2 text-center bg-[#151718] text-white rounded-md md:rounded-lg shadow-2xl transition-all duration-500 w-[150px] dark:bg-gradient-to-br from-orange-300 to-yellow-300 dark:text-[#151718] font-bold
 }

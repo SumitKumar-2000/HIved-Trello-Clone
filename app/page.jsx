@@ -18,7 +18,7 @@ const Home = () => {
           <p className="hived_desc">Empowering you to stay Organized, Focused, and Productive.</p>
           <div className="w-full flex items-center justify-start md:justify-start">
             { session?.user ? (
-                <Link href={`/u/${session?.user.id}/boards`} className="auth_dark_btn mt-4">
+                <Link href={`/boards/u/${session?.user.id}`} className="auth_dark_btn mt-4">
                   Your Boards
                 </Link>
               ) : (

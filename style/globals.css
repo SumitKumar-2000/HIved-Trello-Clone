@@ -11,11 +11,11 @@ body{
 }
 
 .emerald_sky_gradient{
-  @apply absolute top-0 left-0 w-full h-[90vh] md:h-[80vh] -z-50 bg-gradient-to-br from-emerald-400 dark:from-emerald-800 dark:to-sky-400 to-sky-800 filter blur-3xl opacity-50
+  /* @apply absolute top-0 left-0 w-full h-[90vh] md:h-[80vh] -z-50 bg-gradient-to-br from-emerald-800 dark:from-emerald-400 dark:to-sky-400 to-sky-800 filter blur-3xl opacity-50 */
 }
 
 .emereld_sky_gradient_text{
-  @apply bg-gradient-to-r from-emerald-600 dark:from-emerald-300 to-sky-600 dark:to-sky-300 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-orange-500 dark:from-orange-300 to-yellow-500 dark:to-yellow-300 bg-clip-text text-transparent;
 }
 
 .flex_center{
@@ -30,10 +30,6 @@ body{
   @apply flex justify-between items-center
 }
 
-.glassmorphism{
-  @apply bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-200
-}
-
 .dropdown{
   @apply absolute z-50 top-8 md:top-10 right-0 transition-all duration-500 p-1 rounded-md bg-[#151718] flex flex-col border border-black shadow-xl;
 }
@@ -43,7 +39,7 @@ body{
 }
 
 .dark_btn{
-  @apply text-white text-xs md:text-sm bg-[#151718] rounded-full shadow-lg py-1.5 px-4 
+  @apply text-white dark:text-black text-xs md:text-sm bg-[#151718] dark:bg-white rounded-full shadow-lg py-1.5 px-4 
 }
 
 .auth_input{

@@ -5,12 +5,13 @@ import User from "@/models/User";
 export const POST = async (req) => {
     const {userId, title, description} = await req.json();
     
-    const user = await User.findById(userId)
-    if(!user) return new Response("User with the requested Id not found!",{status:401})
     
     try {
         await connectToDB();
-
+        
+        const user = await User.findById(userId)
+        if(!user) return new Response("User with the requested Id not found!",{status:401})
+        
         const newBoard = await new Board({
             creator: userId,
             title: title,

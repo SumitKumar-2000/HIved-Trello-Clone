@@ -1,0 +1,65 @@
+"use client"
+import "@/style/board.css"
+import Link from "next/link"
+
+const BoardFrom = ({type,board,setBoard,submitting,handleFormSubmit}) => {
+  return (
+    <section className='max-w-[90rem] mx-auto bg-transparent h-[90vh] mt-auto pt-8 md:pt-8'>
+      <h1 className="emereld_sky_gradient_text text-4xl md:text-6xl font-extrabold">{type} Board</h1>
+
+      <form
+        onSubmit={handleFormSubmit}
+        className="mt-10 w-full max-w-2xl flex flex-col gap-7 bg-[#f9f9f9] glassmorphism"
+      >
+        
+        <label>
+          <span className="font-semibold text-base text-[#151718]">
+            Title 
+          </span>
+
+          <input 
+            type="text"  
+            value={board.title}
+            onChange={(e)=>setBoard({...board, title: e.target.value})}
+            placeholder="Title"
+            required
+            className="form_input"
+          />
+
+        </label>
+
+        <label>
+          <span className="font-semibold text-base text-[#151718]">
+            Description
+          </span>
+
+          <textarea 
+            value={board.description}
+            onChange={(e)=> setBoard({...board, description: e.target.value})}
+            placeholder="Write board description here..."
+            required
+            className="form_textarea"
+          />
+
+        </label>
+
+        <div className="flex justify-end items-center mx-3 gap-4 mb-3">
+          <Link href="/" className="text-gray-500 text-sm hover:text-black duration-500 transition-all">
+            Cancel
+          </Link>
+          
+          <button
+            type="submit"
+            disabled={submitting}
+            className="px-5 rounded-full bg-orange-500 py-1.5 text-sm text-white hover:shadow-xl transition-all duration-500"
+          >
+            {submitting ?  `${type} ...` : `${type} Board`}
+          </button>
+        </div>
+
+      </form>
+    </section>
+  )
+}
+
+export default BoardFrom

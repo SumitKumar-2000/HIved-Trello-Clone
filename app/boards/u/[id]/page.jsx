@@ -5,9 +5,10 @@ import { redirect } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import "@/style/board.css"
 import BoardSelectCard from '@/components/board_components/BoardSelectCard'
+import Link from 'next/link'
 
 const AllBoards = ({params}) => {
-
+    
     const [boardsData, setBoardsData] = useState(false)
     const {data:session} = useSession({
         required: true,
@@ -26,10 +27,11 @@ const AllBoards = ({params}) => {
     },[])
 
   return (
-    <section className="max-w-[90rem] mx-auto py-8">
+    <section className="max-w-[90rem] mx-auto py-8 relative">
+
         {boardsData !== false ? (
             <div className="w-full">
-                <h1 className="dark_head">Your Boards</h1>
+                <h1 className="emereld_sky_gradient_text text-4xl md:text-6xl font-extrabold">Your Boards</h1>
                 {boardsData.length === 0 && <h1 className="font-medium m-1">No board has been created yet!</h1>}
                 <div className='w-full flex flex-wrap py-8 gap-4'>
                     {
@@ -46,12 +48,15 @@ const AllBoards = ({params}) => {
                     }
 
                     <div className="select_board_card flex justify-center items-center gap-8">
-                        <div className='text-xl'>
+                        <div className='select_board_card_title'>
                             Create New Board    
                         </div>
-                        <div className='h-full flex-1 rounded-md bg-white/5 text-white text-2xl flex_center'>
+                        <Link  
+                            href={`/boards/new`}
+                            className='h-full flex-1 rounded-md bg-white/5 dark:bg-black text-white text-2xl cursor-pointer flex_center hover:bg-white/20 dark:hover:bg-black/90 shadow-md'
+                        >
                             +
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>

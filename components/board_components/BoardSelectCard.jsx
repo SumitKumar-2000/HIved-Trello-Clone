@@ -9,9 +9,9 @@ const BoardSelectCard = ({boardTitle, boardDescription}) => {
             <div className="select_board_card_title">
                 {boardTitle}
             </div>
-            <div className="select_board_card_description">
+            {/* <div className="select_board_card_description">
                 {boardDescription}
-            </div>
+            </div> */}
         </div>
         <button className='select_board_card_button'>
             <span>Visit</span>
