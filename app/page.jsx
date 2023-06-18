@@ -1,6 +1,7 @@
 "use client"
 import "@/style/homePage.css"
 import { useSession } from "next-auth/react"
+import Image from "next/image"
 import Link from "next/link"
 
 const Home = () => {
@@ -30,8 +31,13 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="w-full md:w-[40%]">
-          
+        <div className="w-full flex_center md:w-[50%]">
+          <Image 
+            src="/kanban.svg"
+            width={800}
+            height={800}
+            className="object-cover mt-8 animate-pulseSlowly"
+          />
         </div>
 
       </div>

@@ -37,7 +37,6 @@ const BoardFrom = ({type,board,setBoard,submitting,handleFormSubmit}) => {
             value={board.description}
             onChange={(e)=> setBoard({...board, description: e.target.value})}
             placeholder="Write board description here..."
-            required
             className="form_textarea"
           />
 
