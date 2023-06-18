@@ -22,7 +22,7 @@ const Nav = ({darkMode, setDarkMode}) => {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <nav className='px-4 md:px-8 py-2 md:py-4 flex_between w-full border-b-2 border-black/20 bg-white dark:bg-[#151718]'>
+    <nav className='px-4 md:px-8 py-2 md:py-4 flex_between w-full border-b-2 border-white/50 dark:border-black/20 bg-white dark:bg-[#151718]'>
        <Link href="/" className="flex_center gap-1 dark:text-white text-[#151718] cursor-pointer">
         <BsKanban className="h-[24px] md:h-[28px] w-[24px] md:w-[26px] dark:text-orange-300 text-orange-500"/>
         <div className="hidden md:block text-2xl dark:text-orange-300 text-orange-500 font-bold">

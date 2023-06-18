@@ -1,9 +1,9 @@
 .select_board_card{
-   @apply dark:text-black text-white dark:bg-orange-50 bg-[#151718] border border-black p-4 rounded-md shadow-md w-full md:w-[22rem] h-fit
+   @apply text-black dark:bg-orange-50 bg-white border border-gray-200 dark:border-black p-4 rounded-md shadow-md w-full md:w-[22rem] h-fit
 }
 
 .select_board_card_title{
-    @apply text-white dark:text-black font-medium text-2xl
+    @apply text-black font-medium text-2xl
 }
 
 .select_board_card_description{
@@ -11,7 +11,7 @@
 }
 
 .select_board_card_button{
-    @apply text-sm md:text-base bg-white/10 dark:bg-black text-white rounded-md self-end shadow-md flex gap-1 items-center justify-center py-1 px-3 hover:bg-white/20 dark:hover:bg-black/90
+    @apply text-sm md:text-base bg-[#151718] text-white rounded-md self-end shadow-md flex gap-1 items-center justify-center py-1 px-3;
 }
 
 

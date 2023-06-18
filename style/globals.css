@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body{
-  @apply bg-slate-50 dark:bg-[#151718] text-black dark:text-slate-200 transition-all duration-500
+  @apply bg-white dark:bg-[#151718] text-black dark:text-slate-200 transition-all duration-500
 }
 
 .main{

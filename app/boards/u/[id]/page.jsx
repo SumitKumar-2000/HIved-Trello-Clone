@@ -53,7 +53,7 @@ const AllBoards = ({params}) => {
                         </div>
                         <Link  
                             href={`/boards/new`}
-                            className='h-full flex-1 rounded-md bg-white/5 dark:bg-black text-white text-2xl cursor-pointer flex_center hover:bg-white/20 dark:hover:bg-black/90 shadow-md'
+                            className='h-full flex-1 flex_center bg-[#151718] text-white rounded-md font-medium border border-gray-200 dark:border-black'
                         >
                             +
                         </Link>
