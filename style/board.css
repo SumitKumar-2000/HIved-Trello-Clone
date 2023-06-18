@@ -1,5 +1,5 @@
 .select_board_card{
-   @apply text-black dark:bg-orange-50 bg-white border border-gray-200 dark:border-black p-4 rounded-md shadow-md w-full md:w-[22rem] h-fit
+   @apply text-black dark:bg-orange-50 bg-white border border-gray-200 dark:border-black p-4 rounded-md shadow-md w-full md:w-[20rem] h-fit
 }
 
 .select_board_card_title{
@@ -17,13 +17,13 @@
 
 /* add board form css */
 .form_textarea {
-    @apply w-full flex rounded-lg bg-orange-50 h-[200px] mt-2 p-3 text-sm text-[#151718] outline-0;
+    @apply w-full flex rounded-lg bg-gray-50 dark:bg-[#151718] h-[200px] mt-2 p-3 text-sm text-[#151718] dark:text-white outline-0;
 }
   
 .form_input {
-  @apply w-full flex bg-orange-50 rounded-lg mt-2 p-3 text-sm text-[#151718] outline-0;
+  @apply w-full flex bg-gray-50 dark:bg-[#151718] rounded-lg mt-2 p-3 text-sm text-[#151718] dark:text-white outline-0;
 }
 
 .glassmorphism{
-    @apply rounded-xl border border-gray-200 dark:border-black bg-white p-5;
+    @apply rounded-xl border border-gray-200 dark:border-[#151718] bg-white dark:bg-[#404040] p-5 shadow-md;
 }

@@ -47,15 +47,15 @@ const AllBoards = ({params}) => {
                         )
                     }
 
-                    <div className="select_board_card flex justify-center items-center gap-8">
+                    <div className="select_board_card flex flex-col gap-3">
                         <div className='select_board_card_title'>
                             Create New Board    
                         </div>
                         <Link  
                             href={`/boards/new`}
-                            className='h-full flex-1 flex_center bg-[#151718] text-white rounded-md font-medium border border-gray-200 dark:border-black'
+                            className='select_board_card_button'
                         >
-                            +
+                            Create +
                         </Link>
                     </div>
                 </div>

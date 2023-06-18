@@ -13,8 +13,8 @@ const BoardFrom = ({type,board,setBoard,submitting,handleFormSubmit}) => {
       >
         
         <label>
-          <span className="font-semibold text-base text-[#151718]">
-            Title 
+          <span className="font-semibold text-base text-[#151718] dark:text-white">
+            Title <strong className="text-red-400">*</strong>
           </span>
 
           <input 
@@ -29,7 +29,7 @@ const BoardFrom = ({type,board,setBoard,submitting,handleFormSubmit}) => {
         </label>
 
         <label>
-          <span className="font-semibold text-base text-[#151718]">
+          <span className="font-semibold text-base text-[#151718] dark:text-white">
             Description
           </span>
 
@@ -44,7 +44,7 @@ const BoardFrom = ({type,board,setBoard,submitting,handleFormSubmit}) => {
         </label>
 
         <div className="flex justify-end items-center mx-3 gap-4 mb-3">
-          <Link href="/" className="text-gray-500 text-sm hover:text-black duration-500 transition-all">
+          <Link href="/" className="text-gray-500 dark:text-white text-sm hover:text-black duration-500 transition-all">
             Cancel
           </Link>
           
