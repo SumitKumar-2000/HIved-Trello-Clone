@@ -1,8 +1,9 @@
-import React from 'react'
 import "@/style/board.css"
+import Link from 'next/link'
 import { BsArrowRight } from 'react-icons/bs'
 
 const BoardSelectCard = ({boardId, boardTitle, boardDescription}) => {
+
   return (
     <div className='select_board_card flex flex-col gap-3'>
         
@@ -10,7 +11,7 @@ const BoardSelectCard = ({boardId, boardTitle, boardDescription}) => {
             {boardTitle}
         </div>
         <button className='select_board_card_button'>
-            <span>Visit</span>
+            <Link href={`/boards/b/${boardId}?title=${boardTitle}`}>Visit</Link>
             <BsArrowRight/>
         </button>
     </div>

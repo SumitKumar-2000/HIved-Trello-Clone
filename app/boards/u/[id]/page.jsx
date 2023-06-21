@@ -22,7 +22,6 @@ const AllBoards = ({params}) => {
             const response = await fetch(`/api/board/u/${params.id}`)
             const data = await response.json();
             setBoardsData(data)
-            console.log("data: ",data);
         })()
     },[])
 
@@ -39,7 +38,7 @@ const AllBoards = ({params}) => {
                             boardsData.map(board => {
                                 return <BoardSelectCard 
                                     key={board._id}
-                                    baordId={board._id}
+                                    boardId={board._id}
                                     boardTitle={board.title}
                                     boardDescription={board.description}
                                 />
