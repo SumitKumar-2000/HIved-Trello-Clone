@@ -54,7 +54,7 @@ const Nav = ({darkMode, setDarkMode}) => {
                     </div> */}
 
                     <div 
-                        className="flex_center w-[28px] h-[28px] md:w-[30px] md:h-[30px] border-2 border-black dark:border-white rounded-full relative"
+                        className="flex_center w-[28px] h-[28px] md:w-[30px] md:h-[30px] rounded-full relative"
                         onMouseEnter={()=>setIsHovered(true)}
                         onMouseLeave={()=>setIsHovered(false)}
                     >

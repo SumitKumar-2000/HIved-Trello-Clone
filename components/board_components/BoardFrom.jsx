@@ -3,6 +3,9 @@ import "@/style/board.css"
 import Link from "next/link"
 
 const BoardFrom = ({type,board,setBoard,submitting,handleFormSubmit}) => {
+
+  const maxLength = 100;
+
   return (
     <section className='max-w-[90rem] mx-auto bg-transparent h-[90vh] mt-auto pt-8 md:pt-8'>
       <h1 className="emereld_sky_gradient_text text-4xl md:text-6xl font-extrabold">{type} Board</h1>
@@ -30,7 +33,11 @@ const BoardFrom = ({type,board,setBoard,submitting,handleFormSubmit}) => {
 
         <label>
           <span className="font-semibold text-base text-[#151718] dark:text-white">
-            Description
+            Description 
+          </span>
+
+          <span className="text-gray-600 text-xs md:text-sm ml-2">
+            {`( ${board.description.length} / ${maxLength} )`}
           </span>
 
           <textarea 
@@ -38,6 +45,7 @@ const BoardFrom = ({type,board,setBoard,submitting,handleFormSubmit}) => {
             onChange={(e)=> setBoard({...board, description: e.target.value})}
             placeholder="Write board description here..."
             className="form_textarea"
+            maxLength={maxLength}
           />
 
         </label>

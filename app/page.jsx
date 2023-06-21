@@ -1,12 +1,21 @@
 "use client"
 import "@/style/homePage.css"
-import { useSession } from "next-auth/react"
-import Image from "next/image"
 import Link from "next/link"
+import Image from "next/image"
+import { useEffect, useState } from "react"
+import { useSession, getProviders, signIn } from "next-auth/react"
 
 const Home = () => {
 
   const {data: session} = useSession()
+  const [providers, setProviders] = useState(null)
+
+  useEffect(() => {
+    (async () => {
+        const providerResponse = await getProviders();
+        setProviders(providerResponse)
+    })()
+  },[])
 
   return (
     <section className="mx-auto max-w-[90rem] py-4 rounded-md transition-all duration-500">
@@ -23,10 +32,21 @@ const Home = () => {
                   Your Boards
                 </Link>
               ) : (
-                <button className="auth_dark_btn mt-4">
-                  Sign In
-                </button>
-              )
+                <>
+                  {
+                    providers && Object.values(providers).map((provider) => (
+                      <button 
+                        type="button"
+                        key={provider.name}
+                        onClick={()=>signIn(provider.id)}
+                        className="auth_dark_btn mt-4"
+                      >
+                        Sign In
+                      </button>
+                    ))
+                  }
+                </>
+                )
             }
           </div>
         </div>
