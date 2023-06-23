@@ -27,3 +27,29 @@
 .glassmorphism{
     @apply rounded-xl border border-gray-200 dark:border-[#151718] bg-white dark:bg-[#404040] p-5 shadow-md;
 }
+
+/* board nav CSS */
+.searchbar_container{
+    @apply md:w-[24rem] w-full justify-self-end;
+}
+
+.searchbar_btn{
+    @apply text-gray-400 w-6 h-6;
+}
+
+.searchbar_input{
+   @apply text-gray-400 transition-all bg-transparent duration-500 border-b border-gray-400 outline-none font-medium text-sm md:text-base
+}
+
+.boardName_head{
+   @apply text-lg md:text-2xl font-semibold text-[#151718] dark:text-orange-50 transition-all duration-500
+}
+
+/* board space css */
+.list_container{
+    @apply overflow-x-scroll overflow-y-hidden scroll-smooth w-full pt-4 flex gap-4;
+}
+
+.addList_btn{
+    @apply min-w-[256px] rounded-md bg-[#151718] dark:bg-orange-50  p-2 text-white dark:text-black h-[40px] 
+}
