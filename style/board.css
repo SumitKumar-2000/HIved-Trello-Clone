@@ -3,7 +3,7 @@
 }
 
 .select_board_card_title{
-    @apply text-black font-medium text-2xl
+    @apply text-black font-medium text-xl
 }
 
 .select_board_card_description{
@@ -12,6 +12,10 @@
 
 .select_board_card_button{
     @apply text-sm md:text-base bg-[#151718] text-white rounded-md self-end shadow-md flex gap-1 items-center justify-center py-1 px-3;
+}
+
+.create_board_btn{
+    @apply bg-[#151718] text-white rounded-md shadow-md py-1 px-3;
 }
 
 

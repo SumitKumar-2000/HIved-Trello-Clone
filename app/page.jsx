@@ -54,6 +54,7 @@ const Home = () => {
         <div className="w-full flex_center md:w-[50%]">
           <Image 
             src="/kanban.svg"
+            alt="banner"
             width={800}
             height={800}
             className="object-cover mt-8 animate-pulseSlowly"

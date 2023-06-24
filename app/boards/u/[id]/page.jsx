@@ -1,11 +1,11 @@
 "use client"
-import MoonLoader from '@/components/loaders/MoonLoader'
-import { useSession } from 'next-auth/react'
+import "@/style/board.css"
+import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import "@/style/board.css"
+import { useSession } from 'next-auth/react'
+import MoonLoader from '@/components/loaders/MoonLoader'
 import BoardSelectCard from '@/components/board_components/BoardSelectCard'
-import Link from 'next/link'
 
 const AllBoards = ({params}) => {
     
@@ -46,13 +46,13 @@ const AllBoards = ({params}) => {
                         )
                     }
 
-                    <div className="select_board_card flex flex-col gap-3">
+                    <div className="select_board_card flex_between gap-3">
                         <div className='select_board_card_title'>
                             Create New Board    
                         </div>
                         <Link  
                             href={`/boards/new`}
-                            className='select_board_card_button'
+                            className='create_board_btn flex_center'
                         >
                             Create +
                         </Link>

@@ -6,6 +6,10 @@ body{
   @apply bg-white dark:bg-[#151718] text-black dark:text-slate-200 transition-all duration-500
 }
 
+#checkdv_1{
+  @apply hidden
+}
+
 .main{
   @apply mx-auto w-full min-h-[100%] px-4 md:px-8 
 }

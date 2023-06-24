@@ -5,7 +5,6 @@ import User from "@/models/User";
 export const POST = async (req) => {
     const {userId, title, description} = await req.json();
     
-    
     try {
         await connectToDB();
         
@@ -15,7 +14,8 @@ export const POST = async (req) => {
         const newBoard = await new Board({
             creator: userId,
             title: title,
-            description: description
+            description: description,
+            taskLists: [],
         })
 
         await newBoard.save();

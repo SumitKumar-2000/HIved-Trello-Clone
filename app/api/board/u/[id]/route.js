@@ -5,8 +5,6 @@ export const GET = async (request, {params}) => {
     try {
         await connectToDB();
         const boards = await Board.find({creator: params.id}).populate("creator");
-        
-        // if(boards.length === 0) return new Response(JSON.stringify("No board has been created yet!",{status: 401}))
 
         return new Response(JSON.stringify(boards), {status:200});  
 
@@ -15,3 +13,4 @@ export const GET = async (request, {params}) => {
         return new Response("Internal Server Error",{status: 500});
     }
 }
+
