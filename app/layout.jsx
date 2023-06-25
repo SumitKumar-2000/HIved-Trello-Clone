@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${darkMode ? "dark" : ""}`}>
         <body className={inter.className}>
           <NextAuthSessionProvider>
-            <div className="emerald_sky_gradient"/>
+            {/* <div className="emerald_sky_gradient"/> */}
             <Nav
               darkMode={darkMode}
               setDarkMode={setDarkMode}

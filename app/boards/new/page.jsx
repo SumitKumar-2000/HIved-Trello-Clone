@@ -32,15 +32,11 @@ const CreateNewBoard = () => {
         title: board.title,
         description: board.description
       }),
-      headers: {
-        'Content-Type': 'application/json',
-      }
     })
 
     const data = await response.json()
     setSubmitting(false)
-    router.push(`/boards/u/${session?.user.id}`)
-    console.log("data: ",data);
+    router.push(`/boards/b/${data._id}?title=${data.title}`)
   }
 
   return (
