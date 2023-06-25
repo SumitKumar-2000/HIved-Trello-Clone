@@ -55,7 +55,7 @@
 }
 
 .addList_btn{
-    @apply min-w-[256px] md:min-w-[272px] rounded-[4px] md:rounded-md bg-[#151718] dark:bg-orange-50 p-2 text-white dark:text-black h-fit hover:bg-black/80 cursor-pointer
+    @apply min-w-[256px] md:min-w-[272px] rounded-[4px] md:rounded-md bg-[#151718] dark:bg-[#f1f5f4] p-2 text-white dark:text-black h-fit hover:bg-black/80 cursor-pointer
 }
 
 .addList_form{
@@ -68,4 +68,12 @@
 
 .addList_formSubmit_btn{
     @apply bg-orange-400 dark:bg-orange-300 rounded-sm px-2 py-1 text-sm md:text-base shadow-md;
+}
+
+.taskList{
+    @apply min-w-[256px] md:min-w-[272px] rounded-[4px] md:rounded-md bg-[#151718] dark:bg-[#f1f5f4] p-2 text-white dark:text-black h-fit
+}
+
+.addCard_btn{
+    @apply w-full py-1 px-2 gap-2 hover:bg-zinc-800 dark:hover:bg-white cursor-pointer rounded-sm dark:text-black
 }

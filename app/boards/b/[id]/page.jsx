@@ -1,10 +1,11 @@
 "use client"
 import "@/style/board.css"
+import { BsXLg } from "react-icons/bs"
+import { useEffect, useState } from "react"
 import { useSession } from 'next-auth/react'
 import { redirect, useSearchParams } from 'next/navigation'
 import BoardNav from '@/components/board_components/BoardNav'
-import { useEffect, useState } from "react"
-import { BsXLg } from "react-icons/bs"
+import TaskList from "@/components/board_components/taskList_components/TaskList"
 
 const Board = ({params}) => {
   const searchParams = useSearchParams()  
@@ -12,6 +13,7 @@ const Board = ({params}) => {
 
   const [listTitle, setListTitle] = useState("")
   const [addList,setAddList] = useState(false)
+  const [taskListData, setTaskListData] = useState([])
   const [loading, setLoading] = useState(false)
 
 
@@ -46,13 +48,24 @@ const Board = ({params}) => {
       const response = await fetch(`/api/board/new/${params?.id}/tasklist`) 
       const data = await response.json();
       console.log("data: ",data);
+      setTaskListData(data.taskLists)
     })()
-  },[])
+  },[loading])
 
   return (
     <section className='w-full'>
       <BoardNav boardName={boardName}/>
       <div className='list_container h-[84vh]'>
+        {
+          taskListData.length !== 0 ? taskListData.map((taskList,index) => {
+            return (
+              <TaskList 
+                key={index} 
+                taskList={taskList}
+              />
+            )
+          }) : null
+        }
         {!addList ? (
           <button 
             onClick={()=>setAddList(true)}
@@ -66,10 +79,11 @@ const Board = ({params}) => {
             className="addList_form flex flex-col gap-2"
           >
             <input 
+              required
               type="text" 
+              maxLength="20"
               className="addList_formInput"
               placeholder="Enter List Title..."
-              maxLength="20"
               onChange={(e)=>setListTitle(e.target.value)}
             />
             <div>
