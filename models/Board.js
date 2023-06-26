@@ -2,11 +2,6 @@ import { Schema, model, models } from "mongoose";
 import { date } from "yup";
 
 const taskSchema = new Schema ({
-    TaskList: {
-        type: Schema.Types.ObjectId,
-        ref: "TaskList",
-    },
-
     title: {
         type: String,
         required: [true, "Task's title is required!"],

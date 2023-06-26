@@ -11,11 +11,10 @@ const Board = ({params}) => {
   const searchParams = useSearchParams()  
   const boardName = searchParams.get("title")
 
-  const [listTitle, setListTitle] = useState("")
-  const [addList,setAddList] = useState(false)
-  const [taskListData, setTaskListData] = useState([])
-  const [loading, setLoading] = useState(false)
-
+  const [listTitle, setListTitle] = useState("");
+  const [addList,setAddList] = useState(false);
+  const [taskListData, setTaskListData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const {data:session} = useSession({
     required: true,
@@ -36,13 +35,12 @@ const Board = ({params}) => {
         'Content-Type': 'application/json',
       },
     })
-
+    
     const data = await response.json();
-    console.log("response data: ",data);
     setLoading(false);
     setAddList(false)
   }
-
+  
   useEffect(() => {
     (async () => {
       const response = await fetch(`/api/board/new/${params?.id}/tasklist`) 
@@ -51,7 +49,7 @@ const Board = ({params}) => {
       setTaskListData(data.taskLists)
     })()
   },[loading])
-
+  
   return (
     <section className='w-full'>
       <BoardNav boardName={boardName}/>
