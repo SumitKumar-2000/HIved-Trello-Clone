@@ -6,8 +6,6 @@ export const POST = async (request, {params}) => {
         await connectToDB();
         const {boardId, taskListId} = await params;
         const {title, description,image} = await request.json();
-        // console.log("params",params);
-        // console.log("title: ",title," description: ",description," image: ",null);
 
         const board = await Board.findById(boardId);
         if (!board) {

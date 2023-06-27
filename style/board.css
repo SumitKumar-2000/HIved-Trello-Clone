@@ -71,7 +71,7 @@
 }
 
 .taskList{
-    @apply min-w-[256px] md:min-w-[272px] rounded-[4px] md:rounded-md bg-[#151718] dark:bg-[#f1f5f4] p-2 text-white dark:text-black h-fit
+    @apply min-w-[256px] md:min-w-[272px] rounded-[4px] md:rounded-md bg-[#151718] dark:bg-[#f1f5f4] p-2 text-white dark:text-black h-fit max-h-[80vh] overflow-y-scroll overflow-x-hidden
 }
 
 .addCard_btn{

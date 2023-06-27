@@ -41,7 +41,7 @@ const BoardSchema = new Schema ({
 
     description: {
         type: String,
-        maxlength: 100,
+        maxlength: 60,
     },
 
     taskLists: [taskListSchema]

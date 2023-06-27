@@ -4,7 +4,7 @@ import Link from "next/link"
 
 const BoardFrom = ({type,board,setBoard,submitting,handleFormSubmit}) => {
 
-  const maxLength = 100;
+  const maxLength = 60;
 
   return (
     <section className='max-w-[90rem] mx-auto bg-transparent h-[90vh] mt-auto pt-8 md:pt-8'>

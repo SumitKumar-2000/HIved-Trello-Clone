@@ -10,7 +10,10 @@ const TaskList = ({taskList}) => {
           <BsThreeDotsVertical className="cursor-pointer"/>
         </button>
       </div>
-      <button className="flex_left addCard_btn">
+      <button 
+        className="flex_left addCard_btn"
+        onClick={()=>{}}
+      >
         <BsPlusLg className="text-white dark:text-black" />
         <span>Add a card</span>
       </button>
