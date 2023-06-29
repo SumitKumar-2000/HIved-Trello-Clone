@@ -6,16 +6,12 @@ body{
   @apply bg-white dark:bg-[#151718] text-black dark:text-slate-200 transition-all duration-500
 }
 
-#checkdv_1{
-  @apply hidden
-}
-
 .main{
   @apply mx-auto w-full min-h-[100%] px-4 md:px-8 
 }
 
 .emerald_sky_gradient{
-  @apply absolute top-0 left-0 w-full h-[90vh] md:h-[80vh] -z-50 bg-gradient-to-br from-orange-50 to-yellow-50 filter blur-3xl opacity-50
+  @apply absolute top-0 left-0 w-full h-[75vh] md:h-[80vh] -z-50 bg-gradient-to-br from-orange-300 dark:from-neutral-400 to-[#151718] filter blur-3xl opacity-50
 }
 
 .emereld_sky_gradient_text{

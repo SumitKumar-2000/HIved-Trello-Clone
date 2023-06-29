@@ -1,5 +1,5 @@
 .select_board_card{
-   @apply text-black dark:bg-orange-50 bg-white border border-gray-200 dark:border-black p-4 rounded-md shadow-md w-full md:w-[20rem] h-fit
+   @apply text-black dark:bg-[#f1f5f4] bg-white border border-gray-200 dark:border-black p-4 rounded-md shadow-md w-full md:w-[20rem] h-fit
 }
 
 .select_board_card_title{
@@ -38,20 +38,20 @@
 }
 
 .searchbar_btn{
-    @apply text-gray-400 w-6 h-6;
+    @apply text-[#151718] dark:text-[#f1f5f4] w-7 h-7;
 }
 
 .searchbar_input{
-   @apply text-gray-400 transition-all bg-transparent duration-500 border-b border-gray-400 outline-none font-medium text-sm md:text-base
+   @apply text-[#151718] dark:text-[#f1f5f4] transition-all bg-transparent duration-500 border-b border-[#151718] dark:border-[#f1f5f4] outline-none font-medium text-base md:text-lg placeholder:text-gray-700 dark:placeholder:text-gray-300
 }
 
 .boardName_head{
-   @apply text-lg md:text-2xl font-semibold text-[#151718] dark:text-[#f1f5f4] transition-all duration-500
+   @apply text-xl md:text-2xl font-semibold text-[#151718] dark:text-[#f1f5f4] transition-all duration-500
 }
 
 /* board space css */
 .list_container{
-    @apply overflow-x-scroll w-full pt-4 flex gap-4;
+    @apply overflow-x-scroll scroll-smooth whitespace-nowrap w-full pt-4 flex gap-4;
 }
 
 .addList_btn{

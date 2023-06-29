@@ -19,10 +19,10 @@ export default function RootLayout({ children }) {
   const [darkMode, setDarkMode] = useState(false)
 
   return (
-    <html lang="en" className={`${darkMode ? "dark" : ""}`}>
+    <html lang="en" className={`${darkMode ? "dark" : ""} scroll-smooth`}>
         <body className={inter.className}>
           <NextAuthSessionProvider>
-            {/* <div className="emerald_sky_gradient"/> */}
+            <div className="emerald_sky_gradient"/> 
             <Nav
               darkMode={darkMode}
               setDarkMode={setDarkMode}

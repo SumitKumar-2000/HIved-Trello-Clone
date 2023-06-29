@@ -29,7 +29,7 @@ const Nav = ({ darkMode, setDarkMode }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <nav className="px-4 md:px-8 py-2 md:py-4 flex_between w-full border-b-2 border-black/10 dark:border-black/20 bg-white dark:bg-[#151718]">
+    <nav className="px-4 md:px-8 py-2 md:py-4 flex_between w-full border-b-2 border-black/10 dark:border-black/20">
       <Link
         href="/"
         className="flex_center gap-1 dark:text-white text-[#151718] cursor-pointer"
@@ -43,7 +43,7 @@ const Nav = ({ darkMode, setDarkMode }) => {
       <div className="flex_center gap-2">
         <div
           onClick={() => setDarkMode((prev) => !prev)}
-          className="rounded-full p-1.5 w-[28px] h-[28px] md:w-[30px] md:h-[30px] flex items-center bg-[#151718] shadow-lg cursor-pointer transition-all duration-500 dark:text-[#151718] dark:bg-white text-white"
+          className="rounded-full p-1.5 w-[28px] h-[28px] md:w-[30px] md:h-[30px] flex items-center cursor-pointer"
         >
           <BsFillSunFill
             className={`${
