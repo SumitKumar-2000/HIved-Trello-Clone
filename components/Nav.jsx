@@ -4,11 +4,8 @@ import { useState, useEffect } from "react";
 import {
   BsKanban,
   BsPersonCircle,
-  BsSearch,
-  BsFillMoonFill,
-  BsFillSunFill,
-  BsMoon,
-  BsSun,
+  BsMoon, 
+  BsBrightnessHigh,
 } from "react-icons/bs";
 
 // next-auth imports
@@ -45,12 +42,12 @@ const Nav = ({ darkMode, setDarkMode }) => {
           onClick={() => setDarkMode((prev) => !prev)}
           className="rounded-full p-1.5 w-[28px] h-[28px] md:w-[30px] md:h-[30px] flex items-center cursor-pointer"
         >
-          <BsFillSunFill
+          <BsBrightnessHigh
             className={`${
               darkMode ? "h-0 w-0" : "h-full w-full"
             } rounded-full transition-all duration-500`}
           />
-          <BsFillMoonFill
+          <BsMoon
             className={`${
               darkMode ? "h-full w-full" : "h-0 w-0"
             } transition-all duration-500 rounded-full`}

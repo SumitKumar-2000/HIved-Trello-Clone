@@ -77,3 +77,6 @@
 .addCard_btn{
     @apply w-full py-1 px-2 gap-2 hover:bg-zinc-800 dark:hover:bg-white cursor-pointer rounded-sm dark:text-black hover:shadow-md
 }
+
+/* Card CSS */
+
