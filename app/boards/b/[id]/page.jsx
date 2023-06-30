@@ -55,10 +55,10 @@ const Board = ({params}) => {
       <BoardNav boardName={boardName}/>
       <div className='list_container h-[84vh] scrollbar-thin scrollbar-track-black/20 scrollbar-thumb-black/80 dark:scrollbar-thumb-white/80'>
         {
-          taskListData.length !== 0 ? taskListData.map((taskList,index) => {
+          taskListData.length !== 0 ? taskListData.map((taskList) => {
             return (
-              <TaskList 
-                key={index} 
+              <TaskList
+                key={taskList._id}
                 taskList={taskList}
               />
             )
