@@ -1,11 +1,14 @@
 import { connectToDB } from "@/config/MongoDb";
 import Board from "@/models/Board";
 
+
 export const POST = async (request, {params}) => {
     try {
         await connectToDB();
         const {boardId, taskListId} = await params;
+        console.log("boardId: ",boardId," ","taskListId: ",taskListId);
         const {title, description,image} = await request.json();
+        console.log("title: ",title," ","description: ",description,"image: ",image);
 
         const board = await Board.findById(boardId);
         if (!board) {

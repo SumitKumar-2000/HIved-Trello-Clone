@@ -9,7 +9,7 @@ import {
   BsCardImage,
 } from "react-icons/bs";
 
-const TaskList = ({ taskList }) => {
+const TaskList = ({ taskList, boardId }) => {
   const [cardAdd, setCardAdd] = useState(false);
   const [loading, setLoading] = useState(false);
   const [cardFormData, setCardFormData] = useState({
@@ -17,22 +17,50 @@ const TaskList = ({ taskList }) => {
     description: "",
     image: "",
   });
-
+  
   const handleCardChange = (e) => {
-    if(e.target.name !== "image"){
-      setCardFormData({...cardFormData, [e.target.name]:e.target.value})
+    if (e.target.name !== "image") {
+      setCardFormData({ ...cardFormData, [e.target.name]: e.target.value });
     } else {
-      if(e.target.files.length !== 0){
-        setCardFormData({...cardFormData,[e.target.name]:URL.createObjectURL(e.target.files[0])})
+      if (e.target.files.length !== 0) {
+        setCardFormData({
+          ...cardFormData,
+          [e.target.name]: e.target.files[0],
+        });
       }
     }
-  }
+  };
 
-  const handleCardAdd = (e) => {
+  const handleCardAdd = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    console.log("card form data: ",cardFormData);
+    // sending image to cloudnary and getting image link
+    const imageFormData = new FormData()
+    imageFormData.append("file",cardFormData.image)
+    imageFormData.append("upload_preset","hived_trello_clone")
+    imageFormData.append("cloud_name","dcdwstdye")
+
+    const imgData = await fetch(`https://api.cloudinary.com/v1_1/dcdwstdye/image/upload`,{
+        method:"POST",
+        body:imageFormData
+    }).then(res => res.json())
+      .catch(err => console.log("fetched-err: ",err))
+
+    const {secure_url} = imgData;
+
+    // sending card data to backend with image link
+    const response = await fetch(`/api/board/new/${boardId}/tasklist/${taskList._id}/tasks`, {
+      method: "POST",
+      body: JSON.stringify({
+        title: cardFormData.title,
+        description: cardFormData.description,
+        image: secure_url,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
     setCardFormData({
       title: "",
@@ -87,26 +115,32 @@ const TaskList = ({ taskList }) => {
             />
             <div
               className="flex items-center gap-2 cursor-pointer"
-              onClick={() => document.querySelector(`.selectImage-${taskList._id}`).click()}
-            >  
+              onClick={() =>
+                document.querySelector(`.selectImage-${taskList._id}`).click()
+              }
+            >
               {cardFormData.image.length === 0 ? (
                 <BsCardImage className="h-[16px] w-[16px]" />
-                ) : (
-                  <Image
-                    src={cardFormData.image}
-                    alt="uploaded image"
-                    width={32}
-                    height={32}
-                  />
+              ) : (
+                <Image
+                  src={URL.createObjectURL(cardFormData.image)}
+                  alt="uploaded image"
+                  width={32}
+                  height={32}
+                />
               )}
               <span>
-                {cardFormData.image.length === 0 ? "Add image" : "Add image again"}
+                {cardFormData.image.length === 0
+                  ? "Add image"
+                  : "Add image again"}
               </span>
             </div>
-            {cardFormData.image.length !== 0 && <BsXLg
-              onClick={() => setCardFormData({...cardFormData, image:""})}
-              className="cursor-pointer"
-            />}
+            {cardFormData.image.length !== 0 && (
+              <BsXLg
+                onClick={() => setCardFormData({ ...cardFormData, image: "" })}
+                className="cursor-pointer"
+              />
+            )}
           </div>
 
           <span className="flex items-center gap-2">
@@ -118,14 +152,13 @@ const TaskList = ({ taskList }) => {
               className="cursor-pointer"
             />
           </span>
-
         </form>
       ) : (
         <button
           className="flex_left addCard_btn"
           onClick={() => setCardAdd(true)}
         >
-          <BsPlusLg className="text-white dark:text-black"/>
+          <BsPlusLg className="text-white dark:text-black" />
           <span>Add a card</span>
         </button>
       )}

@@ -8,6 +8,13 @@ import BoardNav from '@/components/board_components/BoardNav'
 import TaskList from "@/components/board_components/taskList_components/TaskList"
 
 const Board = ({params}) => {
+  const {data:session} = useSession({
+    required: true,
+        onUnauthenticated() {
+            redirect("/")
+        }
+  })
+
   const searchParams = useSearchParams()  
   const boardName = searchParams.get("title")
 
@@ -16,12 +23,6 @@ const Board = ({params}) => {
   const [taskListData, setTaskListData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const {data:session} = useSession({
-    required: true,
-        onUnauthenticated() {
-            redirect("/")
-        }
-  })  
 
   const handleListFormSubmit = async (e) =>{
     setLoading(true);
@@ -60,6 +61,7 @@ const Board = ({params}) => {
               <TaskList
                 key={taskList._id}
                 taskList={taskList}
+                boardId={params?.id}
               />
             )
           }) : null

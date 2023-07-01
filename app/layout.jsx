@@ -20,18 +20,18 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" className={`${darkMode ? "dark" : ""} scroll-smooth`}>
-        <body className={inter.className}>
           <NextAuthSessionProvider>
-            <div className="emerald_sky_gradient"/> 
-            <Nav
-              darkMode={darkMode}
-              setDarkMode={setDarkMode}
-            />
-            <main className='main'>
-              {children}
-            </main>
+            <body className={inter.className}>
+                <div className="emerald_sky_gradient"/> 
+                <Nav
+                  darkMode={darkMode}
+                  setDarkMode={setDarkMode}
+                />
+                <main className='main'>
+                  {children}
+                </main>
+            </body>
           </NextAuthSessionProvider>
-        </body>
     </html>
   )
 }
