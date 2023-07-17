@@ -94,29 +94,6 @@ const TaskList = ({ taskList, boardId }) => {
             />
             <h2 className="text-sm text-gray-400">↬ todo description</h2>
         </div>
-        <div className="card_container">
-          <h1 className="uppercase">todo heading</h1>
-          <Image
-            src="https://res.cloudinary.com/dcdwstdye/image/upload/v1689580779/Hived/ujb6cphfqzbtbkgxbpkh.jpg"
-            alt="card_img"
-            width="248"
-            height="240"
-            className="object-cover rounded-t-sm"
-            />
-            <h2 className="text-sm text-gray-400">↬ todo description</h2>
-        </div>
-        <div className="card_container">
-          <h1 className="uppercase">todo heading</h1>
-          <Image
-            src="https://res.cloudinary.com/dcdwstdye/image/upload/v1689580779/Hived/ujb6cphfqzbtbkgxbpkh.jpg"
-            alt="card_img"
-            width="248"
-            height="240"
-            className="object-cover rounded-t-sm"
-            />
-            <h2 className="text-sm text-gray-400">↬ todo description</h2>
-        </div>
-        
       </div>
 
       {cardAdd ? (
