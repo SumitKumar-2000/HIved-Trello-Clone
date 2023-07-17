@@ -71,14 +71,18 @@
 }
 
 .taskList{
-    @apply min-w-[256px] md:min-w-[272px] rounded-[4px] md:rounded-md bg-[#151718] dark:bg-[#f1f5f4] p-2 text-white dark:text-black h-fit max-h-[80vh] overflow-y-scroll overflow-x-hidden
+    @apply min-w-[256px] md:min-w-[272px] rounded-[4px] md:rounded-md bg-[#151718] dark:bg-[#f1f5f4] p-2 text-white dark:text-black h-fit
 }
 
 .addCard_btn{
-    @apply w-full py-1 px-2 gap-2 hover:bg-zinc-800 dark:hover:bg-white cursor-pointer rounded-sm dark:text-black hover:shadow-md
+    @apply w-full py-1 px-2 gap-2 mt-2 bg-zinc-800 hover:bg-zinc-700 dark:hover:bg-white cursor-pointer rounded-sm dark:text-black hover:shadow-md
 }
 
 /* Card CSS */
 .addImage_btn{
     @apply p-2 bg-zinc-800 dark:bg-white rounded-sm text-sm text-slate-400 shadow-md;
+}
+
+.card_container{
+    @apply w-full rounded-sm bg-zinc-800 p-2 shadow-sm mb-2 flex flex-col gap-2;
 }

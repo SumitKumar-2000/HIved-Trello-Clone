@@ -73,13 +73,52 @@ const TaskList = ({ taskList, boardId }) => {
   };
 
   return (
-    <section className="taskList flex_center flex-col scrollbar-none">
+    <section className="taskList flex_center flex-col max-h-[70vh]">
       <div className="w-full flex_between mb-4 pl-2">
         <span className="font-semibold">{taskList.title}</span>
         <button className="p-2 flex_center hover:bg-zinc-800 dark:hover:bg-white rounded-sm">
           <BsThreeDotsVertical className="cursor-pointer" />
         </button>
       </div>
+
+      {/* card */}
+      <div className="overflow-scroll overflow-x-hidden scrollbar-none">  
+        <div className="card_container">
+          <h1 className="uppercase">todo heading</h1>
+          <Image
+            src="https://res.cloudinary.com/dcdwstdye/image/upload/v1689580779/Hived/ujb6cphfqzbtbkgxbpkh.jpg"
+            alt="card_img"
+            width="248"
+            height="240"
+            className="object-cover rounded-t-sm"
+            />
+            <h2 className="text-sm text-gray-400">↬ todo description</h2>
+        </div>
+        <div className="card_container">
+          <h1 className="uppercase">todo heading</h1>
+          <Image
+            src="https://res.cloudinary.com/dcdwstdye/image/upload/v1689580779/Hived/ujb6cphfqzbtbkgxbpkh.jpg"
+            alt="card_img"
+            width="248"
+            height="240"
+            className="object-cover rounded-t-sm"
+            />
+            <h2 className="text-sm text-gray-400">↬ todo description</h2>
+        </div>
+        <div className="card_container">
+          <h1 className="uppercase">todo heading</h1>
+          <Image
+            src="https://res.cloudinary.com/dcdwstdye/image/upload/v1689580779/Hived/ujb6cphfqzbtbkgxbpkh.jpg"
+            alt="card_img"
+            width="248"
+            height="240"
+            className="object-cover rounded-t-sm"
+            />
+            <h2 className="text-sm text-gray-400">↬ todo description</h2>
+        </div>
+        
+      </div>
+
       {cardAdd ? (
         <form
           onSubmit={handleCardAdd}
@@ -159,7 +198,7 @@ const TaskList = ({ taskList, boardId }) => {
           onClick={() => setCardAdd(true)}
         >
           <BsPlusLg className="text-white dark:text-black" />
-          <span>Add a card</span>
+          <span>Add new card</span>
         </button>
       )}
     </section>

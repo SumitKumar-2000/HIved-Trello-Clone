@@ -32,3 +32,12 @@ export const POST = async (request, {params}) => {
         return new Response("Internal Server Error",{status: 500})
     }
 }
+
+export const GET = async (request) => {
+    try{
+
+    } catch(error){
+        console.log("task card get error: ",error);
+        return new Response("Internal Server Error",{status: 500})
+    }
+}
