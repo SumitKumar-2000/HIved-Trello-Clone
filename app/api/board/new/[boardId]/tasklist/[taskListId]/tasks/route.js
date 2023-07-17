@@ -6,9 +6,7 @@ export const POST = async (request, {params}) => {
     try {
         await connectToDB();
         const {boardId, taskListId} = await params;
-        console.log("boardId: ",boardId," ","taskListId: ",taskListId);
         const {title, description,image} = await request.json();
-        console.log("title: ",title," ","description: ",description,"image: ",image);
 
         const board = await Board.findById(boardId);
         if (!board) {
@@ -33,8 +31,9 @@ export const POST = async (request, {params}) => {
     }
 }
 
-export const GET = async (request) => {
+export const GET = async (request, {params}) => {
     try{
+        const {boardId, taskListId} = await params;
 
     } catch(error){
         console.log("task card get error: ",error);

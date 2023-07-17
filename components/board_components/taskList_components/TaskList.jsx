@@ -82,18 +82,34 @@ const TaskList = ({ taskList, boardId }) => {
       </div>
 
       {/* card */}
-      <div className="overflow-scroll overflow-x-hidden scrollbar-none">  
-        <div className="card_container">
-          <h1 className="uppercase">todo heading</h1>
-          <Image
-            src="https://res.cloudinary.com/dcdwstdye/image/upload/v1689580779/Hived/ujb6cphfqzbtbkgxbpkh.jpg"
-            alt="card_img"
-            width="248"
-            height="240"
-            className="object-cover rounded-t-sm"
-            />
-            <h2 className="text-sm text-gray-400">↬ todo description</h2>
-        </div>
+      <div className="overflow-y-scroll scrollbar-none w-full">  
+        {
+          taskList.tasks.map(card => {
+            return (
+              <div 
+                className="card_container"
+                key={card._id}
+              >
+                <div className="uppercase mb-2 w-full whitespace-normal">
+                  {card.title}
+                </div>
+                <Image
+                  src={card.image}
+                  alt="card_img"
+                  width="248"
+                  height="240"
+                  className="object-cover rounded-t-sm mb-2"
+                />
+                <p 
+                  className="text-sm text-gray-400 whitespace-normal"
+                >
+                    ↬ {card.description}
+                </p>
+              </div>
+            )   
+          })
+        }
+
       </div>
 
       {cardAdd ? (

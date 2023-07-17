@@ -84,5 +84,5 @@
 }
 
 .card_container{
-    @apply w-full rounded-sm bg-zinc-800 dark:bg-white p-2 shadow-sm mb-2 flex flex-col gap-2;
+    @apply w-full rounded-sm bg-zinc-800 dark:bg-white p-2 shadow-sm mb-2;
 }
