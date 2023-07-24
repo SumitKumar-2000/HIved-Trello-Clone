@@ -117,6 +117,7 @@ const TaskList = ({ taskList, boardId }) => {
           onSubmit={handleCardAdd}
           className="addList_form flex flex-col gap-2"
         >
+          <h1>Card Details</h1>
           <input
             required
             type="text"

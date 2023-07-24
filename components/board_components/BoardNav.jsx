@@ -13,7 +13,7 @@ const BoardNav = ({boardName}) => {
       <span className="searchbar_container flex_right gap-1">
         <input 
             type="search" 
-            placeholder="Search..."
+            placeholder="Search tasklist..."
             className={`searchbar_input ${query ? "w-full" : "w-0"} `}
         />
         <button 
