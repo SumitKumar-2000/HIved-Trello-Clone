@@ -36,18 +36,22 @@ const TaskList = ({ taskList, boardId }) => {
     setLoading(true);
 
     // sending image to cloudnary and getting image link
-    const imageFormData = new FormData()
-    imageFormData.append("file",cardFormData.image)
-    imageFormData.append("upload_preset","hived_trello_clone")
-    imageFormData.append("cloud_name","dcdwstdye")
 
-    const imgData = await fetch(`https://api.cloudinary.com/v1_1/dcdwstdye/image/upload`,{
-        method:"POST",
-        body:imageFormData
-    }).then(res => res.json())
-      .catch(err => console.log("fetched-err: ",err))
-
-    const {secure_url} = imgData;
+    if(cardFormData.image !== ""){
+      const imageFormData = new FormData()
+      imageFormData.append("file",cardFormData.image)
+      imageFormData.append("upload_preset","hived_trello_clone")
+      imageFormData.append("cloud_name","dcdwstdye")
+  
+      const imgData = await fetch(`https://api.cloudinary.com/v1_1/dcdwstdye/image/upload`,{
+          method:"POST",
+          body:imageFormData
+      }).then(res => res.json())
+        .catch(err => console.log("fetched-err: ",err))
+  
+      const {secure_url} = imgData;
+      setCardFormData({...cardFormData, image:secure_url})
+    }
 
     // sending card data to backend with image link
     const response = await fetch(`/api/board/new/${boardId}/tasklist/${taskList._id}/tasks`, {
@@ -55,7 +59,7 @@ const TaskList = ({ taskList, boardId }) => {
       body: JSON.stringify({
         title: cardFormData.title,
         description: cardFormData.description,
-        image: secure_url,
+        image: cardFormData.image,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -93,13 +97,13 @@ const TaskList = ({ taskList, boardId }) => {
                 <div className="uppercase mb-2 w-full whitespace-normal">
                   {card.title}
                 </div>
-                <Image
+                {card.image !== "" && <Image
                   src={card.image}
                   alt="card_img"
                   width="248"
                   height="240"
                   className="object-cover rounded-t-sm mb-2"
-                />
+                />}
                 <p 
                   className="text-sm text-gray-400 whitespace-normal"
                 >
