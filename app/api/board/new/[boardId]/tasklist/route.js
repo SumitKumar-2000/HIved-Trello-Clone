@@ -1,6 +1,7 @@
 import { connectToDB } from "@/config/MongoDb";
 import Board from "@/models/Board";
 
+// api to add new tasklist
 export const POST = async (request, { params }) => {
   const {listTitle} = await request.json();
   
@@ -27,8 +28,8 @@ export const POST = async (request, { params }) => {
   }
 };
 
+// fetching a board i.e. all board data
 export const GET = async (request, {params}) => {
-  
   try {
     await connectToDB()
     const board = await Board.findById(params.boardId)
@@ -42,3 +43,15 @@ export const GET = async (request, {params}) => {
     return new Response("Internal Server Error",{status: 500})
   }
 }
+
+// api to delete a board
+export const DELETE = async(request,{params}) => {
+  try {
+    await connectToDB();
+    await Board.findByIdAndDelete(params.boardId);
+    return new Response("Board Deleted Successfully",{status:200});
+  } catch (error) {
+    console.log("error: ",error);
+    return new Response("Internal Server Error",{status: 500});
+  }
+} 

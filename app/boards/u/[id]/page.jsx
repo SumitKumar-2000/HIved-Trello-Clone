@@ -22,8 +22,26 @@ const AllBoards = ({params}) => {
             const response = await fetch(`/api/board/u/${params.id}`)
             const data = await response.json();
             setBoardsData(data)
+            console.log("board data: ",data);
         })()
     },[])
+
+    const handleDeleteBoard = async (boardId) =>{
+        const hasConfirmed = confirm("Are you sure, you want to delete this board ?")
+        if(hasConfirmed){
+            try {
+                const filteredBoard = boardsData.filter(board => board._id !== boardId)
+                setBoardsData(filteredBoard)
+
+                await fetch(`/api/board/new/${boardId}/tasklist`,{
+                    method: "DELETE"
+                })
+
+            } catch (error) {
+                console.log("Delete board error: ",error);
+            }
+        }
+    }
 
   return (
     <section className="max-w-[90rem] mx-auto py-8 relative">
@@ -41,6 +59,7 @@ const AllBoards = ({params}) => {
                                     boardId={board._id}
                                     boardTitle={board.title}
                                     boardDescription={board.description}
+                                    handleDeleteBoard={handleDeleteBoard}
                                 />
                             })
                         )
