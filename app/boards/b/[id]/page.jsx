@@ -70,7 +70,10 @@ const Board = ({params}) => {
   
   return (
     <section className='w-full'>
-      <BoardNav boardName={boardName}/>
+      <BoardNav 
+        boardName={boardName}
+        taskListCount={taskListData.length}
+      />
       <div className='list_container h-[84vh] scrollbar-thin scrollbar-track-black/20 scrollbar-thumb-black/80 dark:scrollbar-thumb-white/80'>
         {
           taskListData.length !== 0 ? taskListData.map((taskList) => {
