@@ -7,15 +7,17 @@ import {
   BsPlusLg,
   BsXLg,
   BsCardImage,
+  BsTrash3,
+  BsFillTrashFill,
 } from "react-icons/bs";
 
-const TaskList = ({ taskList, boardId }) => {
+const TaskList = ({ taskList, boardId, handleTaskListDelete }) => {
   const [cardAdd, setCardAdd] = useState(false);
   const [loading, setLoading] = useState(false);
   const [cardFormData, setCardFormData] = useState({
     title: "",
     description: "",
-    image: "",
+    image: null,
   });
   
   const handleCardChange = (e) => {
@@ -36,8 +38,8 @@ const TaskList = ({ taskList, boardId }) => {
     setLoading(true);
 
     // sending image to cloudnary and getting image link
-
-    if(cardFormData.image !== ""){
+    let imageUrl = "";
+    if(cardFormData.image !== null){
       const imageFormData = new FormData()
       imageFormData.append("file",cardFormData.image)
       imageFormData.append("upload_preset","hived_trello_clone")
@@ -50,7 +52,7 @@ const TaskList = ({ taskList, boardId }) => {
         .catch(err => console.log("fetched-err: ",err))
   
       const {secure_url} = imgData;
-      setCardFormData({...cardFormData, image:secure_url})
+      imageUrl = secure_url;
     }
 
     // sending card data to backend with image link
@@ -59,7 +61,7 @@ const TaskList = ({ taskList, boardId }) => {
       body: JSON.stringify({
         title: cardFormData.title,
         description: cardFormData.description,
-        image: cardFormData.image,
+        image: imageUrl,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -71,7 +73,7 @@ const TaskList = ({ taskList, boardId }) => {
       description: "",
       image: "",
     });
-
+    
     setLoading(false);
     setCardAdd(false);
   };
@@ -80,8 +82,11 @@ const TaskList = ({ taskList, boardId }) => {
     <section className="taskList flex_center flex-col max-h-[70vh]">
       <div className="w-full flex_between mb-4 pl-2">
         <span className="font-semibold">{taskList.title}</span>
-        <button className="p-2 flex_center hover:bg-zinc-800 dark:hover:bg-white rounded-sm">
-          <BsThreeDotsVertical className="cursor-pointer" />
+        <button 
+          className="p-2 flex_center hover:bg-zinc-800 dark:hover:bg-white rounded-sm"
+          onClick={()=>handleTaskListDelete(taskList._id)}
+        >
+          <BsFillTrashFill className="cursor-pointer" />
         </button>
       </div>
 
@@ -97,7 +102,7 @@ const TaskList = ({ taskList, boardId }) => {
                 <div className="uppercase mb-2 w-full whitespace-normal">
                   {card.title}
                 </div>
-                {card.image !== "" && <Image
+                {card.image !== null && <Image
                   src={card.image}
                   alt="card_img"
                   width="248"
@@ -119,7 +124,7 @@ const TaskList = ({ taskList, boardId }) => {
       {cardAdd ? (
         <form
           onSubmit={handleCardAdd}
-          className="addList_form flex flex-col gap-2"
+          className="addList_form border-t-4 border-t-zinc-800 mt-4 flex flex-col gap-2"
         >
           <h1>Card Details</h1>
           <input
@@ -156,7 +161,7 @@ const TaskList = ({ taskList, boardId }) => {
                 document.querySelector(`.selectImage-${taskList._id}`).click()
               }
             >
-              {cardFormData.image.length === 0 ? (
+              {cardFormData.image === null ? (
                 <BsCardImage className="h-[16px] w-[16px]" />
               ) : (
                 <Image
@@ -167,14 +172,14 @@ const TaskList = ({ taskList, boardId }) => {
                 />
               )}
               <span>
-                {cardFormData.image.length === 0
+                {cardFormData.image === null
                   ? "Add image"
                   : "Add image again"}
               </span>
             </div>
-            {cardFormData.image.length !== 0 && (
+            {cardFormData.image !== null && (
               <BsXLg
-                onClick={() => setCardFormData({ ...cardFormData, image: "" })}
+                onClick={() => setCardFormData({ ...cardFormData, image: null })}
                 className="cursor-pointer"
               />
             )}

@@ -46,10 +46,27 @@ const Board = ({params}) => {
     (async () => {
       const response = await fetch(`/api/board/new/${params?.id}/tasklist`) 
       const data = await response.json();
-      console.log("data: ",data);
       setTaskListData(data.taskLists)
     })()
   },[loading])
+
+  const handleTaskListDelete = async (taskListId) =>{
+    
+    const hasComfirm = confirm("Are you sure, you want to delete this Task List ?")
+    
+    if(hasComfirm){
+      try {
+        const updatedTaskLists = taskListData.filter(taskList => taskList._id !== taskListId)
+        setTaskListData(updatedTaskLists);
+    
+        await fetch(`/api/board/new/${params?.id}/tasklist/${taskListId}/tasks`,{
+          method: "DELETE",
+        })  
+      } catch (error) {
+        console.log("task list delete error: ",error);
+      }
+    }
+  }
   
   return (
     <section className='w-full'>
@@ -62,6 +79,7 @@ const Board = ({params}) => {
                 key={taskList._id}
                 taskList={taskList}
                 boardId={params?.id}
+                handleTaskListDelete={handleTaskListDelete}
               />
             )
           }) : null
