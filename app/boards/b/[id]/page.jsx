@@ -36,8 +36,12 @@ const Board = ({params}) => {
         'Content-Type': 'application/json',
       },
     })
+
+    // fetching again all lists to view the updated task list
+    const fetchedResposne = await fetch(`/api/board/new/${params?.id}/tasklist`)
+    const data = await fetchedResposne.json();
+    setTaskListData(data.taskLists)
     
-    const data = await response.json();
     setLoading(false);
     setAddList(false)
   }
@@ -48,7 +52,7 @@ const Board = ({params}) => {
       const data = await response.json();
       setTaskListData(data.taskLists)
     })()
-  },[loading])
+  },[])
 
   const handleTaskListDelete = async (taskListId) =>{
     

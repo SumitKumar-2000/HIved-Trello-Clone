@@ -19,7 +19,7 @@ const TaskList = ({ taskList, boardId, handleTaskListDelete }) => {
     description: "",
     image: null,
   });
-  
+
   const handleCardChange = (e) => {
     if (e.target.name !== "image") {
       setCardFormData({ ...cardFormData, [e.target.name]: e.target.value });
@@ -39,86 +39,87 @@ const TaskList = ({ taskList, boardId, handleTaskListDelete }) => {
 
     // sending image to cloudnary and getting image link
     let imageUrl = "";
-    if(cardFormData.image !== null){
-      const imageFormData = new FormData()
-      imageFormData.append("file",cardFormData.image)
-      imageFormData.append("upload_preset","hived_trello_clone")
-      imageFormData.append("cloud_name","dcdwstdye")
-  
-      const imgData = await fetch(`https://api.cloudinary.com/v1_1/dcdwstdye/image/upload`,{
-          method:"POST",
-          body:imageFormData
-      }).then(res => res.json())
-        .catch(err => console.log("fetched-err: ",err))
-  
-      const {secure_url} = imgData;
+    if (cardFormData.image !== null) {
+      const imageFormData = new FormData();
+      imageFormData.append("file", cardFormData.image);
+      imageFormData.append("upload_preset", "hived_trello_clone");
+      imageFormData.append("cloud_name", "dcdwstdye");
+
+      const imgData = await fetch(
+        `https://api.cloudinary.com/v1_1/dcdwstdye/image/upload`,
+        {
+          method: "POST",
+          body: imageFormData,
+        }
+      )
+        .then((res) => res.json())
+        .catch((err) => console.log("fetched-err: ", err));
+
+      const { secure_url } = imgData;
       imageUrl = secure_url;
     }
 
     // sending card data to backend with image link
-    const response = await fetch(`/api/board/new/${boardId}/tasklist/${taskList._id}/tasks`, {
-      method: "POST",
-      body: JSON.stringify({
-        title: cardFormData.title,
-        description: cardFormData.description,
-        image: imageUrl,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `/api/board/new/${boardId}/tasklist/${taskList._id}/tasks`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          title: cardFormData.title,
+          description: cardFormData.description,
+          image: imageUrl,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     setCardFormData({
       title: "",
       description: "",
       image: "",
     });
-    
+
     setLoading(false);
     setCardAdd(false);
   };
 
   return (
     <section className="taskList flex_center flex-col max-h-[70vh]">
-      <div className="w-full flex_between mb-4 pl-2">
+      <div className="w-full flex_between mb-2 pl-2">
         <span className="font-semibold">{taskList.title}</span>
-        <button 
+        <button
           className="p-2 flex_center hover:bg-zinc-800 dark:hover:bg-white rounded-sm"
-          onClick={()=>handleTaskListDelete(taskList._id)}
+          onClick={() => handleTaskListDelete(taskList._id)}
         >
           <BsFillTrashFill className="cursor-pointer" />
         </button>
       </div>
 
-      {/* card */}
-      <div className="overflow-y-scroll scrollbar-none w-full">  
-        {
-          taskList.tasks.map(card => {
-            return (
-              <div 
-                className="card_container"
-                key={card._id}
-              >
-                <div className="uppercase mb-2 w-full whitespace-normal">
-                  {card.title}
-                </div>
-                {card.image !== null && <Image
+      {/* cards */}
+      <div className="overflow-y-scroll scrollbar-none w-full">
+        {taskList.tasks.map((card) => {
+          return (
+            <div className="card_container" key={card._id}>
+              <div className="uppercase mb-2 w-full whitespace-normal">
+                {card.title}
+              </div>
+              {card.image !== null && (
+                <Image
                   src={card.image}
                   alt="card_img"
-                  width="248"
-                  height="240"
+                  width={400}
+                  height={400}
                   className="object-cover rounded-t-sm mb-2"
-                />}
-                <p 
-                  className="text-sm text-gray-400 whitespace-normal"
-                >
-                    ↬ {card.description}
-                </p>
-              </div>
-            )   
-          })
-        }
-
+                />
+              )}
+              <p className="text-sm text-gray-400 whitespace-normal">
+                ↬ {card.description}
+              </p>
+            </div>
+          );
+        })}
       </div>
 
       {cardAdd ? (
@@ -172,14 +173,14 @@ const TaskList = ({ taskList, boardId, handleTaskListDelete }) => {
                 />
               )}
               <span>
-                {cardFormData.image === null
-                  ? "Add image"
-                  : "Add image again"}
+                {cardFormData.image === null ? "Add image" : "Add image again"}
               </span>
             </div>
             {cardFormData.image !== null && (
               <BsXLg
-                onClick={() => setCardFormData({ ...cardFormData, image: null })}
+                onClick={() =>
+                  setCardFormData({ ...cardFormData, image: null })
+                }
                 className="cursor-pointer"
               />
             )}
