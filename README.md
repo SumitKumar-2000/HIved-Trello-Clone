@@ -11,7 +11,8 @@
         |    |_ Tailwind CSS / CSS
         |    |_ Javascript 
         |    |_ HTML
-        |    |_ Rest-API 
+        |    |_ Rest-API / Express-API  
+        |    |_ MongoDB
         |
         |_ Major Dev Dependencies
              |_ Mongoose
