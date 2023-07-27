@@ -11,7 +11,7 @@ import {
   BsFillTrashFill,
 } from "react-icons/bs";
 
-const TaskList = ({ taskList, boardId, handleTaskListDelete }) => {
+const TaskList = ({ taskList, boardId, handleTaskListDelete, setTaskListData }) => {
   const [cardAdd, setCardAdd] = useState(false);
   const [loading, setLoading] = useState(false);
   const [cardFormData, setCardFormData] = useState({
@@ -38,7 +38,7 @@ const TaskList = ({ taskList, boardId, handleTaskListDelete }) => {
     setLoading(true);
 
     // sending image to cloudnary and getting image link
-    let imageUrl = "";
+    let imageUrl = null;
     if (cardFormData.image !== null) {
       const imageFormData = new FormData();
       imageFormData.append("file", cardFormData.image);
@@ -75,10 +75,15 @@ const TaskList = ({ taskList, boardId, handleTaskListDelete }) => {
       }
     );
 
+    // fetching boardData again to reflect changes
+    const fetchedResposne = await fetch(`/api/board/new/${boardId}/tasklist`)
+    const data = await fetchedResposne.json();
+    setTaskListData(data.taskLists)
+
     setCardFormData({
       title: "",
       description: "",
-      image: "",
+      image: null,
     });
 
     setLoading(false);

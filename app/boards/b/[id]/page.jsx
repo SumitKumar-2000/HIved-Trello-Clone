@@ -86,6 +86,7 @@ const Board = ({params}) => {
                 key={taskList._id}
                 taskList={taskList}
                 boardId={params?.id}
+                setTaskListData={setTaskListData}
                 handleTaskListDelete={handleTaskListDelete}
               />
             )
