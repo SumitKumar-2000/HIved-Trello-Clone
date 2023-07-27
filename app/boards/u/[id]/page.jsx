@@ -22,7 +22,6 @@ const AllBoards = ({params}) => {
             const response = await fetch(`/api/board/u/${params.id}`)
             const data = await response.json();
             setBoardsData(data)
-            console.log("board data: ",data);
         })()
     },[])
 
