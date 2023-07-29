@@ -13,8 +13,8 @@ module.exports = {
     extend: {
       keyframes: {
         pulseSlowly: {
-          '0%, 100%': { transform: 'translate3d(0, -2px, 0)' },
-          '50%': { transform: 'translate3d(0, 2px, 0)' }
+          '0%, 100%': { transform: 'translate3d(0, -3px, 0)' },
+          '50%': { transform: 'translate3d(0, 3px, 0)' }
         }
       },
       animation: {

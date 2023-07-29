@@ -45,7 +45,7 @@
 }
 
 .boardName_head{
-   @apply text-xl md:text-2xl font-semibold text-[#151718] dark:text-[#f1f5f4] transition-all duration-500
+   @apply text-xl md:text-2xl leading-6 font-semibold text-[#151718] dark:text-[#f1f5f4] transition-all duration-500
 }
 
 /* board space css */

@@ -11,7 +11,7 @@ body{
 }
 
 .emerald_sky_gradient{
-  @apply absolute top-0 left-0 w-full h-[75vh] md:h-[80vh] -z-50 bg-gradient-to-br from-orange-300 dark:from-neutral-400 to-[#151718] filter blur-3xl opacity-50
+  @apply absolute top-0 left-0 w-full h-[75vh] md:h-[80vh] -z-50 bg-gradient-to-br from-orange-400 dark:from-neutral-100 to-white filter blur-3xl opacity-50
 }
 
 .emereld_sky_gradient_text{
