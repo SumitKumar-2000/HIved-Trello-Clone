@@ -18,7 +18,6 @@
     @apply bg-[#151718] text-white rounded-md shadow-md py-1 px-3;
 }
 
-
 /* add board form css */
 .form_textarea {
     @apply w-full flex rounded-lg bg-gray-50 dark:bg-[#151718] h-[200px] mt-2 p-3 text-sm text-[#151718] dark:text-white outline-0;
