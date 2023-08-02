@@ -1,4 +1,4 @@
-# ImagiGen
+# Hived
 - Dynamic and responsive Trello-like application, allowing users to create & manage multiple boards, and organize tasks. 
 - Implemented user account functionality, Users would able to Create & Delete their Boards, Tasklists, and Cards.
 - 
