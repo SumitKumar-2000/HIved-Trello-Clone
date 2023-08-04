@@ -1,7 +1,6 @@
-# ImagiGen
+# Hived
 - Dynamic and responsive Trello-like application, allowing users to create & manage multiple boards, and organize tasks. 
 - Implemented user account functionality, Users would able to Create & Delete their Boards, Tasklists, and Cards.
-- 
 
 ## Technology Used
     
@@ -21,13 +20,37 @@
              |_ Bcryptjs
              
 ## OVERVIEW
-![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/2e094f4f-bb58-418c-ba2a-fe90334c3759)
-![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/2ba00b01-9909-400d-9661-96af22bdc55a)
-![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/242e4f0f-e2c9-4c44-9bdc-73b051780b97)
-![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/3ff38a3f-c323-4d63-b35f-c32becc5db95)
-![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/3eb3524f-0b01-430b-9572-4a7c2e610290)
-![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/f74fb223-60a0-4fdc-8f43-1d9fe05776e2)
-![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/9f02796f-7b5e-4ae3-9bb3-bab4a7442342)
+### Home Screen
+![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/9f683e1b-ece9-41c7-b72d-68d96406da10)
+
+### User Signed In
+![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/7c87c980-0d5a-4ee0-ad00-c93ae229eae7)
+
+### Boards Page - shows all boards created by user
+![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/8c79ae78-5d4a-4a69-b56e-f571d599e457)
+
+### Add new baord page
+![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/77a941b4-0c81-4070-9d6e-a95dbf7f3ee1)
+
+### Particular board page - eg: Developement Board
+![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/5d511b9a-3b0e-4d9c-afe0-c2c076e7d25b)
+
+### Adding new task list to the board
+![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/58dea962-7ea7-4b7b-b67b-bea606405d3a)
+
+### Creating new task card with in a task list
+![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/7b2a48d1-4187-4f80-a3c3-c7b564ead193)
+
+### Dark Mode
+![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/dd5eabdc-adf3-45fe-9d29-9a4e49283536)
+
+### Responsive UI
+![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/7e4ba140-c692-4984-a275-1d9e9c029cad)
+![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/d52ae93a-7e34-4fe3-9e64-1733eff075c6)
+![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/954e972b-727b-41b2-a147-1e6227c8f7ad)
+![image](https://github.com/SumitKumar-2000/HIved-Trello-Clone/assets/80626529/0be97c97-dd25-44b2-89e6-fe0f2a3467e4)
+
+
 
 
 ## Live Demo
