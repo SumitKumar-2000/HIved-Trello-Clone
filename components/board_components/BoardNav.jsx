@@ -9,25 +9,26 @@ const BoardNav = ({boardName, taskListCount}) => {
 
   return (
     <nav className="w-full h-[40px] flex_between">
-      <span className={`${query?"max-sm:w-0 max-sm:hidden":"w-full"} boardName_head`}>
+      {query ? (
+        <span className={`boardName_head`}>
         {boardName}
-        <span className="ml-2 font-normal text-sm text-black dark:text-white">
-          ({taskListCount})
+          <span className="ml-2 font-normal text-sm text-black dark:text-white">
+            ({taskListCount})
+          </span>
         </span>
-      </span>  
-      <span className="searchbar_container flex_right gap-1">
-        <input 
-            type="search" 
-            placeholder="Search tasklist..."
-            className={`searchbar_input ${query ? "w-full" : "w-0"} `}
-        />
-        <button 
-            type="button"
-            onClick={()=>setQuery(prev => !prev)}
-        >
-            <BsFilter className="searchbar_btn"/>
-        </button>
-      </span>
+        ) : (
+          <input 
+              type="search" 
+              placeholder="Search tasklist..."
+              className={`searchbar_input`}
+          />
+      )}  
+      <button 
+          type="button"
+          onClick={()=>setQuery(prev => !prev)}
+      >
+          <BsFilter className="searchbar_btn"/>
+      </button>
     </nav>
   );
 };

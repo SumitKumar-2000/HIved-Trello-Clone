@@ -32,16 +32,12 @@
 }
 
 /* board nav CSS */
-.searchbar_container{
-    @apply md:w-[24rem] w-full justify-self-end;
-}
-
 .searchbar_btn{
     @apply text-[#151718] dark:text-[#f1f5f4] w-7 h-7;
 }
 
 .searchbar_input{
-   @apply text-[#151718] dark:text-[#f1f5f4] transition-all bg-transparent duration-500 border-b border-[#151718] dark:border-[#f1f5f4] outline-none font-medium text-base md:text-lg placeholder:text-gray-700 dark:placeholder:text-gray-300
+   @apply text-[#151718] dark:text-[#f1f5f4] border-b border-[#151718] dark:border-[#f1f5f4] outline-none font-medium text-base md:text-lg placeholder:text-gray-700 dark:placeholder:text-gray-300 w-full bg-transparent
 }
 
 .boardName_head{
