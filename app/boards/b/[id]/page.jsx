@@ -22,7 +22,7 @@ const Board = ({params}) => {
   const [addList,setAddList] = useState(false);
   const [taskListData, setTaskListData] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const [searchQuery, setSearchQuery] = useState("")
 
   const handleListFormSubmit = async (e) =>{
     setLoading(true);
@@ -48,11 +48,11 @@ const Board = ({params}) => {
   
   useEffect(() => {
     (async () => {
-      const response = await fetch(`/api/board/new/${params?.id}/tasklist`) 
+      const response = await fetch(`/api/board/new/${params?.id}/tasklist?q=${searchQuery}`) 
       const data = await response.json();
-      setTaskListData(data.taskLists)
+      setTaskListData(data)
     })()
-  },[])
+  },[searchQuery])
 
   const handleTaskListDelete = async (taskListId) =>{
     
@@ -77,6 +77,7 @@ const Board = ({params}) => {
       <BoardNav 
         boardName={boardName}
         taskListCount={taskListData.length}
+        setSearchQuery={setSearchQuery}
       />
       <div className='list_container h-[84vh] scrollbar-thin scrollbar-track-black/20 scrollbar-thumb-black/80 dark:scrollbar-thumb-white/80'>
         {

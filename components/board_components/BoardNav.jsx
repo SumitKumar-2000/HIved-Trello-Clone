@@ -3,9 +3,17 @@ import "@/style/board.css"
 import React, { useState } from "react";
 import { BsFilter } from "react-icons/bs";
 
-const BoardNav = ({boardName, taskListCount}) => {
+const BoardNav = ({boardName, taskListCount, setSearchQuery}) => {
 
-  const [query, setQuery] = useState(false)  
+  const [query, setQuery] = useState(false) 
+
+  let timeOutId;
+  function handleSearchQuery(q,delay=500){
+    clearTimeout(timeOutId)
+    timeOutId = setTimeout(() => {
+      setSearchQuery(q)
+    }, delay);
+  }
 
   return (
     <nav className="w-full h-[40px] flex_between">
@@ -21,6 +29,7 @@ const BoardNav = ({boardName, taskListCount}) => {
               type="search" 
               placeholder="Search tasklist..."
               className={`searchbar_input`}
+              onChange={(e)=>handleSearchQuery(e.target.value,1000)}
           />
       )}  
       <button 

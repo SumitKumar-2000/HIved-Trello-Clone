@@ -28,7 +28,7 @@ export const POST = async (request, { params }) => {
   }
 };
 
-// fetching a board i.e. all board data
+// fetching a board i.e. all board data and returning response as tasklists of that board
 export const GET = async (request, {params}) => {
   try {
     await connectToDB()
@@ -36,8 +36,16 @@ export const GET = async (request, {params}) => {
     if(!board){
       return new Response("Board not found",{status:401})
     }
+    
+    const {searchParams} = new URL(request.url)
+    const query = searchParams.get('q')
 
-    return new Response(JSON.stringify(board),{status:200})
+    if(query !== ""){
+      const searchedTaskLists = await board.taskLists.filter((taskList) => taskList.title.toLowerCase().includes(query.toLowerCase()))
+      return new Response(JSON.stringify(searchedTaskLists), {status: 200})
+    }
+
+    return new Response(JSON.stringify(board.taskLists),{status:200})
   } catch (error) {
     console.log("error: ",error);
     return new Response("Internal Server Error",{status: 500})
