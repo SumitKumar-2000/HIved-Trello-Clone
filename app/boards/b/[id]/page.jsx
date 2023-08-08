@@ -40,7 +40,7 @@ const Board = ({params}) => {
     // fetching again all lists to view the updated task list
     const fetchedResposne = await fetch(`/api/board/new/${params?.id}/tasklist`)
     const data = await fetchedResposne.json();
-    setTaskListData(data.taskLists)
+    setTaskListData(data)
     
     setLoading(false);
     setAddList(false)

@@ -40,7 +40,8 @@ export const GET = async (request, {params}) => {
     const {searchParams} = new URL(request.url)
     const query = searchParams.get('q')
 
-    if(query !== ""){
+    if(query !== "" && query !== null){
+      console.log("query: ",query);
       const searchedTaskLists = await board.taskLists.filter((taskList) => taskList.title.toLowerCase().includes(query.toLowerCase()))
       return new Response(JSON.stringify(searchedTaskLists), {status: 200})
     }

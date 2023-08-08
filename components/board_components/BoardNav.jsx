@@ -17,7 +17,7 @@ const BoardNav = ({boardName, taskListCount, setSearchQuery}) => {
 
   return (
     <nav className="w-full h-[40px] flex_between">
-      {query ? (
+      {!query ? (
         <span className={`boardName_head`}>
         {boardName}
           <span className="ml-2 font-normal text-sm text-black dark:text-white">
