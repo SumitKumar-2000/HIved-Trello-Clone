@@ -21,7 +21,7 @@ const BoardNav = ({boardName, taskListCount, setSearchQuery}) => {
         <span className={`boardName_head`}>
         {boardName}
           <span className="ml-2 font-normal text-sm text-black dark:text-white">
-            ({taskListCount})
+            ({taskListCount}) 
           </span>
         </span>
         ) : (

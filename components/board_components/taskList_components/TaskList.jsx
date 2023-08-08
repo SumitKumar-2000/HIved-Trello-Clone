@@ -78,7 +78,7 @@ const TaskList = ({ taskList, boardId, handleTaskListDelete, setTaskListData }) 
     // fetching boardData again to reflect changes
     const fetchedResposne = await fetch(`/api/board/new/${boardId}/tasklist`)
     const data = await fetchedResposne.json();
-    setTaskListData(data.taskLists)
+    setTaskListData(data)
 
     setCardFormData({
       title: "",

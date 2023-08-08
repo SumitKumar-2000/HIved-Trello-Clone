@@ -71,7 +71,7 @@ const Board = ({params}) => {
       }
     }
   }
-  
+
   return (
     <section className='w-full'>
       <BoardNav 
