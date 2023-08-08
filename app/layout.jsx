@@ -6,6 +6,8 @@ import Nav from '@/components/Nav'
 import NextAuthSessionProvider from '@/components/providers/NextAuthProvider'
 import { Inter } from 'next/font/google'
 
+import Head from "next/document"
+
 const inter = Inter({ subsets: ['latin'] })
 
 // to use layout in client side, it is required to add "use client" but also required to remove this meta data
@@ -22,8 +24,11 @@ export default function RootLayout({ children }) {
     <html 
       lang="en" 
       className={`${darkMode ? "dark" : ""}`}
-    >
+    >     
           <NextAuthSessionProvider>
+            <head>
+              <title>Hived</title>
+            </head>
             <body className={inter.className}>
                 <div className="emerald_sky_gradient"/> 
                 <Nav
